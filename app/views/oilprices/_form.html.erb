@@ -1,0 +1,9 @@
+<div class="row col-xs-offset-3 col-xs-6">
+    <%= form_for(@oilprice) do |f| %>
+      <%= f.label :oilprice, class: "label label-danger width100" %>
+      <div class="col-xs-12">
+          <%= f.text_field :price, class: "form-control" %>
+      </div>
+      <%= f.submit "Price Regist", class:"btn btn-primary" %>
+    <% end %>
+</div>

@@ -1,0 +1,34 @@
+
+
+<div class="row">
+
+ <div class="col-md-6 col-md-offset-3">
+  
+    <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+
+
+      <h2>Edit User's Profile</h2>
+      <%= f.hidden_field :company_id %>
+      <%= f.hidden_field :branch_id %>
+      <span class="label label-warning label-xl width100"><%= @user.company.name_e %></span>
+      <span class="label label-warning label-xl width100">Branch: <%= @user.branch.name %></span>   
+
+
+     <%= f.label :name, class:"label label-danger col-md-4" %>
+     <%= f.text_field :name, class:"form-control" %>
+     
+     <%= f.label :email, class:"label label-danger col-md-4" %>
+     <%= f.text_field :email, class:"form-control" %>
+ 
+     <%= f.label :password, class:"label label-danger col-md-4" %>
+     <%= f.password_field :password, class:"form-control" %>
+     
+     <%= f.label :password_confirmation, "Confirmation", class:"label label-danger col-md-4" %>
+     <%= f.password_field :password_confirmation, class:"form-control" %>
+     
+     <%= f. submit "Change User Profile", class: "btn btn-large btn-danger" %>
+
+   <% end %>
+  </div>
+</div>

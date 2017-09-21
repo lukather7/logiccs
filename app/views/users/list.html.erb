@@ -1,0 +1,57 @@
+<% cycle = 40000 %>
+<%= render "modal" %>
+<div class="logiccs_table">
+  <div class="table-responsive">
+    <h2>Trucks Mileage Situation</h2>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Vehicle No.</th>
+          <th>Maker</th>
+          <th>Wheels</th>
+          <th>Engine</th>
+          <th>Type</th>
+          <th>Total Mileage</th>
+          <th>Next Booking Mileage</th>
+          <th>Booking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mytrucks.each do |truck | %>
+        <tr>
+          <td><%= truck.vehicleid %></td>
+          <td><%= truck.number %></td>
+          <td><%= truck.maker %></td>
+          <td><%= truck.wheels %>W</td>
+          <td><%= truck.engine %></td>
+          <td><%= truck.body %></td>
+
+          <% mileage = truck.last_mileage %>
+          <td>
+            <%= link_to(mileage,record_truck_path(truck), remote: true,
+             "data-toggle" => "modal", "data-target"=>"#modal-example") %>
+          </td>
+          <%# m = mileage %>
+          <%# next mileage %>
+          <td>
+            <%#= ((m /cycle) + 1) * cycle %>
+            <%= nextm = truck.next_mileage(cycle) %>
+          </td>
+          <td>
+            <% between = nextm - mileage %>
+            <% btnclass = (between <= 2000) ? "btn-danger" : "btn-primary" %>
+            <button class="btn <%= btnclass %>">Booking</button>
+            <%= link_to "Karte", karte_path(truck.id), class: 'btn btn-success' %>
+
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%# paginate @mytrucks %>
+    </div>
+  </div>
+  <!-- table-responsive -->
+</div>

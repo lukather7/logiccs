@@ -1,0 +1,15 @@
+<% if @user.truck_include?(truck) %>
+     <%= form_for(@user.truckrelationships.find_by(truck_id: truck.id), html:{:method => :delete}) do |f| %>
+        <%#= render 'shared/error_messages' object: f.object %>
+
+        <%= f.hidden_field :user_id, value:@user.id %>
+        <%= f.hidden_field :truck_id, value:truck.id %>
+        <%= f.submit "DEL", class:"btn btn-warning btn-xs" %>
+     <% end %>
+<% else %>
+     <%= form_for(@user.truckrelationships.build) do |f| %>
+         <%= f.hidden_field :user_id, value:@user.id %>
+         <%= f.hidden_field :truck_id, value:truck.id %>
+         <%= f.submit "Add", class:"btn btn-primary btn-xs" %>
+     <% end %>
+<% end %>

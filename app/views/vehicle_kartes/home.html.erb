@@ -1,0 +1,477 @@
+<div class="logiccs_table">
+<div class="table-responsive">  
+       
+ <h2>Vehicle Karte</h2>
+ 
+   <%= link_to "Request Approval", list_path, class:"btn btn-danger" %>
+   <%= link_to "Approval", list_path, class:"btn btn-danger" %>
+   <%= link_to "Booking Maintenacne", list_path, class:"btn btn-danger" %>
+   <%= link_to "Dealer Answer", list_path, class:"btn btn-danger" %>
+   <%= link_to "Maintenance Calender", list_path, class:"btn btn-danger" %>
+  
+   <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr><th>Company Name</th><th>Branch</th><th>Vehicle ID</th><th>Vehicle No.</th><th>Maker</th><th>Wheels</th><th>Engine</th><th>Type</th><th>Model</th>
+      <th>Date of purchace</th><th>Year</th><th>Current Km</th><th>km Next Maintenance</th>
+    </thead>      
+    
+    <tbody>
+        <tr><td>Nippon Express Co., Ltd.</td><td>Lakrabang Branch</td><td>1</td><td>70-0001</td><td>Hino</td><td>10W</td><td>Diesel</td><td>Tractor</td><td>FM8JKHHA</td>
+        <td>2007OCT4</td><td>10</td><td>250,000</td><td>254,000</td>
+    </tbody>
+    </table>
+    
+    <div class="row">
+        <div class="col-xs-6">
+         <%= image_tag 'hinotruck.jpg', :size => '570x380' %>
+        </div>
+        <div class="col-xs-6" style="background:white; color:black">
+         <form method="post" action="History">
+          <p>History this vehicle<br>
+          <textarea cols="col-xs-6" rows="10" fixedhead='rows:1; cols:1'></textarea>
+          <p><input type="submit" value="post"></p>
+         </form>
+    </div>
+    <div class="kartetable col-xs-12">
+      <table class="table table-striped table-bordered table-hover" _fixedhead='rows:1; cols:1'>
+          <thead>
+           <tr><th>Maintenance Interval</th><th>Cost Items</th><th>Engine Oil</th><th>Oil Filter</th><th>Oil Filter2</th><th>Fuel FIlter</th><th>ps_oil</th>
+           <th>Tm_oil</th><th>Df_oil<th>Air_Filter</th><th>Air_Drier</th><th>break_oil</th><th>clutch_oil</th>
+           <th>coolant</th><th>grease</th><th>cng_filter</th><th>spark_plug</th><th>clutch_kit</th><th>battery</th><th>filter_ps_oil</th>
+           <th>timing_belt_eg</th><th>timing_belt_ac</th><th>filter_axle</th><th>softwasher</th><th>gasket_front_wheel</th>
+           <th>gasket_rear_wheel</th><th>seal_oil_front_wheel</th><th>:wheel_grease</th><th>Total Parts/Total Lobor</th>
+           <th>Other Costs</th><th>Grand Total</th>
+          </thead> 
+        <tbody>     
+        <tr>
+         <td rowspan="2">40,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td rowspan="2">80,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td rowspan="2">120,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td rowspan="2">160,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td rowspan="2">200,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td rowspan="2">240,000km</td>
+         <td>Parts Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td>Labor Costs</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tbody>
+   </table>
+ </div>
+ </div>
+ </div>
+ 
+ 

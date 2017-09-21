@@ -1,0 +1,15 @@
+<table class="table table-responsive logiccs_table">
+<% @trucks.each do |truck| %>
+   <tr>
+       <td><%= truck.company.name_e if truck.company %></td>
+       <td><%= truck.branch.name if truck.branch %></td>
+       <td><%= truck.number %></td>
+       <td><%= truck.vehicleid %></td>
+       <td><%= truck.maker %></td>
+       <td><%= truck.model %></td>
+       <td><%= link_to "Edit", edit_truck_path(truck), class:"btn btn-xs btn-primary" %></td>
+       <td><%= link_to "Delete", truck,  class:"btn btn-xs btn-danger", method: :delete, data: { confirm: "You sure?" } %></td>
+   </tr>
+
+<% end %>
+</table>

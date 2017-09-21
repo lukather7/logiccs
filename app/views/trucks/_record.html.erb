@@ -1,0 +1,12 @@
+<%= form_for(@truck.truckhistories.build, html:{class:"form-horizontal"}) do |f| %>
+    <%#= render 'shared/error_messages' object: f.object %>
+
+    <%= f.date_select :action, {}, {class:"col-sm-4"} %>
+    
+    <div class="form-group">
+    <%= f.label :mileage, class:"control-label col-sm-2" %>
+    <%= f.text_field :mileage, class:"form-control col-sm-2" %>
+    </div>
+    <%= f.hidden_field :truck_id, value:@truck.id %>
+    <%= f.submit "Record Mileage", class:"btn btn-primary" %>
+<% end %>

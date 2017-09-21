@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck_id: 
+  record: 2017-02-06
+  mileage: 1
+
+two:
+  truck_id: 
+  record: 2017-02-06
+  mileage: 1

@@ -1,0 +1,27 @@
+ <% unless trucks.present? %>
+     No Trucks are listed
+ <% else %>
+    <div class="table-responsive table-striped">
+    	<table class="table">
+      <thead>
+			    <tr>
+			     <th class="col-xs-2 col-sm-3 col-md-3 col-lg-4">List</th>
+			     <th class="col-xs-2 col-sm-3 col-md-3 col-lg-4">ID</th>
+			     <th class="col-xs-2 col-sm-3 col-md-3 col-lg-4">Number</th>
+			     <th class="col-xs-2 col-sm-3 col-md-3 col-lg-4">Maker</th>
+			     <th class="col-xs-2 col-sm-3 col-md-3 col-lg-4">Model</th>
+			    </tr>
+			   </thead>
+			   <tbody>
+      <% trucks.each do |truck| %>
+       <tr>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= render 'adddeltruckbutton', truck: truck %></td>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.vehicleid %></td>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.number %></td>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.maker %></td>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.model %></td>
+       </tr>
+     <% end %>
+     </tbody>
+   </table>  
+  <% end %>

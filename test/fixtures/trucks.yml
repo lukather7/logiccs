@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  branch_id: 
+  maker: MyString
+  model: MyString
+  body: MyString
+  wheels: 1
+  engine: MyString
+  vehicleid: MyString
+  number: MyString
+  e_oil: 1
+  tm_oil: 1
+  tire: MyString
+
+two:
+  company_id: 
+  branch_id: 
+  maker: MyString
+  model: MyString
+  body: MyString
+  wheels: 1
+  engine: MyString
+  vehicleid: MyString
+  number: MyString
+  e_oil: 1
+  tm_oil: 1
+  tire: MyString

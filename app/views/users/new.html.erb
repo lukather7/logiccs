@@ -1,0 +1,35 @@
+<h2>Sign up</h2>
+
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+
+      <%= f.label :company_id %>
+      
+      <%= f.collection_select(:company_id, @companies, :id, :name_e,  
+            {:include_blank => "Please Select"},
+            {:onchange => "update_branch(this.value, 'user')"} 
+            ) %>
+            
+      <%= f.label :branch_id %>
+      <div id="branch_select">
+        <%= render partial:'shared/branch_menu',  locals:{obj: :user, branches: @branches } %>
+      </div>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+    
+    <%= f. submit "Create my account", class: "btn btn-large btn-danger" %>
+   <% end %>
+  </div>
+</div>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
  
   post 'companies', to:'companies#create'
+  
+  post 'branches', to:'branches#create'
 
   get 'new/trackhistories'
   

@@ -1,1 +1,21 @@
-<%# @companies %>
+<h2>登録企業一覧</h2>
+<div class="row">
+ <div class=" col-xs-offset-2 col-xs-8">
+   <table class="table table-striped table-bordered table-hover">
+     <thead>
+         <tr><th class="logiccs_table">ID</th><th class="logiccs_table">会社名</th>
+     </thead> 
+    <% @companies.each do |c| %>
+       <tbody>
+          <tr><td><%= c.id %></td>
+              <td><%= c.name_j %></td>
+       </tbody>  
+     
+    <% end %> 
+    </table>
+ </div>
+ 
+</div> 
+
+<%#= paginate @companies %>
+

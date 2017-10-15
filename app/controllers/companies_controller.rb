@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
     
     def index
-        @companies = Company.all.order("created_at DESC");
+        @companies = Company.all.order("created_at DESC").page(params[:page]);
     end
     
     def new
@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
     end
     
     def index
-        @companies = Company.all.order("created_at DESC")
+        @companies = Company.all.order("created_at ASC")
     end
     
     private

@@ -25,7 +25,7 @@ class BranchesController < ApplicationController
     end
     
     def index
-        @branch = Branch.all.order("created_at DESC")
+        @branch = Branch.all.order("created_at ASC")
     end
     
     private

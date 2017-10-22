@@ -1,0 +1,25 @@
+<h2>登録支店一覧</h2>
+<div class="row">
+ <div class=" col-xs-offset-2 col-xs-8">
+   <table class="table table-striped table-bordered table-hover">
+     <thead>
+         <tr>
+         <th class="logiccs_table">ID</th>
+         <th class="logiccs_table">会社名</th>
+         <th class="logiccs_table">支店名</th>
+         </tr>
+     </thead> 
+    <% @branch.each do |b| %>
+       <tbody>
+          <tr><td><%= b.id %></td>
+              <td><%= b.company.name_e %></td>
+              <td><%= b.name %></td>
+       </tbody>  
+     
+    <% end %> 
+    </table>
+ </div>
+ 
+</div> 
+
+<%#= paginate @branches %>

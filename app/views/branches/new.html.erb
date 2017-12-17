@@ -1,4 +1,6 @@
 <%= form_for(@branch) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+    
     <%= f.label :company_id, class:"label label-danger width100" %>
     <%= f.collection_select(:company_id, Company.all, :id, :name_e,  
           {:include_blank => "Please Select"} ) %>

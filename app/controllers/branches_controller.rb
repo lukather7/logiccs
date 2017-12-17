@@ -20,6 +20,7 @@ class BranchesController < ApplicationController
          flash[:success] = "Welcome to LOGICCS !"    
          redirect_to admin_path
         else
+         flash[:danger] = "regist failed !"    
          render 'new'
         end 
     end

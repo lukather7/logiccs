@@ -15,7 +15,7 @@ class BranchesController < ApplicationController
     end
     
     def create
-        @branch = Branch.new(company_params)
+        @branch = Branch.new(branch_params)
         if @branch.save
          flash[:success] = "Welcome to LOGICCS !"    
          redirect_to admin_path
@@ -30,7 +30,7 @@ class BranchesController < ApplicationController
     
     private
       def branch_params
-        params.require(:branch).permit(:name_e, :name_j)
+        params.require(:branch).permit(:name_e, :name_j, :company_id)
       end   
 end
  

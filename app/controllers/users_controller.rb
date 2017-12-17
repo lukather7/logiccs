@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 #  before_action :logged_in_user, only: [:show, :edit, :update, :list]
   before_action :logged_in_user, only: [:show, :list, :dashboard]
 
+  def index
+    @users = User.all.order(:company_id, :name)
+  end
+
   def new
     @companies = Company.preload(:branches)
     @branches =  (@user != nil) ? Branch.where(company_id: @user.company_id) : {}

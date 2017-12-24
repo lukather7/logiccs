@@ -2,8 +2,8 @@ class BranchesController < ApplicationController
     
     def update_branch_menus
         @branches = Branch.where(company_id: params[:company])
-        @kind = params[:object]
-        render 'update_branch_menus', format: 'js'
+        @model = params[:object].pluralize
+        render "#{@model}/update_branch_menus", format: 'js'
     end
     
     def index

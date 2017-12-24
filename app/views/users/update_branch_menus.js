@@ -5,5 +5,5 @@
 //
 
 $('#branch_select').html(
-    '<%=  escape_javascript( render partial:"branch_menu", locals:{obj: @kind, branches: @branches} ) %>'
+    '<%=  escape_javascript( render partial:"users/branch_menu", locals:{obj: @kind, branches: @branches} ) %>'
 );

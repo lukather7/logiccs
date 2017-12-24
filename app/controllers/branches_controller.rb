@@ -5,6 +5,18 @@ class BranchesController < ApplicationController
         @model = params[:object].pluralize
         render "#{@model}/update_branch_menus", format: 'js'
     end
+
+   def update_branch_usermenus
+        @branches = Branch.where(company_id: params[:company])
+        render "users/update_branch_menus", format: 'js'
+    end
+    
+    
+   def update_branch_truckmenus
+        @branches = Branch.where(company_id: params[:company])
+        render "trucks/update_branch_menus", format: 'js'
+    end
+    
     
     def index
         @branches = branch.all.order("created_at DESC");

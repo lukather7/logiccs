@@ -5,12 +5,12 @@
       <%= f.label :company_id, class:"label label-danger width100" %>
       <%= f.collection_select(:company_id, @companies, :id, :name_e,  
             {:include_blank => "Please Select"},
-            {:onchange => "update_branch(this.value, 'truck')"} ) %>
+            {:onchange => "update_branchFortruck(this.value, 'truck')"} ) %>
  </div>
  <div class="col-md-3">
       <%= f.label :branch_id, class:"label label-danger width100" %>
       <div id="branch_select">
-        <%= render partial:'shared/branch_menu', locals:{obj: :truck, branches: @branches } %>
+        <%= render partial:'trucks/branch_menu', locals:{obj: :truck, branches: @branches } %>
       </div>
  </div>
  <div class="col-md-3">

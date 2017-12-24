@@ -5,7 +5,7 @@
       <%= f.label :company, class:"label label-danger width100" %>
       <%= f.collection_select(:company_id, @companies, :id, :name_e,  
             {:include_blank => "Please Select"},
-            {:onchange => "update_branch(this.value, 'truck')"} ) %>
+            {:onchange => "update_branchFortruck(this.value, 'truck')"} ) %>
  </div>
  <div class="col-md-3">
     <%= f.label :model, class:'label label-danger width100' %>

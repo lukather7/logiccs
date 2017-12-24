@@ -41,7 +41,8 @@ Rails.application.routes.draw do
   
   get 'kartes/:id' => 'vehicle_kartes#karte', as: :karte
   
-  post 'branches/update_branch_menus' => 'branches#update_branch_menus', as: :branch_menus
+  post 'branches/update_branch_usermenus' => 'branches#update_branch_usermenus', as: :branch_usermenus
+  post 'branches/update_branch_truckmenus' => 'branches#update_branch_truckmenus', as: :branch_truckmenus
   
   resources :oilprices
   resources :loginotes

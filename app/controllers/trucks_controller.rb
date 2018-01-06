@@ -76,7 +76,11 @@ class TrucksController < ApplicationController
     @truck = Truck.find(params[:id])
   end
   
-
+  def destroy
+    @truck = Truck.find(params[:id])
+    @truck.destroy if (@truck)
+    redirect_to trucks_url
+  end
   
 private
   def truck_params

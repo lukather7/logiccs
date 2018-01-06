@@ -6,7 +6,7 @@ class Truck < ActiveRecord::Base
 
   has_many :maintains
   has_many :truckhistories
-  has_many :truckrelationships, foreign_key: :track_id, dependent: :destroy
+  has_many :truckrelationships, dependent: :destroy
   has_many :users, through: :truckrelationships
 
   has_many :loginotes

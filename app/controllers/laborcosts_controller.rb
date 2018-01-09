@@ -27,6 +27,12 @@ def update
     redirect_to laborcosts_path
 end
 
+def destroy
+    @cost = Laborcost.find(params[:id])
+    @cost.destroy
+    redirect_to laborcosts_path
+end
+
 private
 
    def laborcost_params

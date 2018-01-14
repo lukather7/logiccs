@@ -5,7 +5,7 @@ class Truck < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   has_many :maintains
-  has_many :truckhistories
+  has_many :truckhistories, dependent: :destroy
   has_many :truckrelationships, dependent: :destroy
   has_many :users, through: :truckrelationships
 

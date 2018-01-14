@@ -23,15 +23,13 @@ class CompaniesController < ApplicationController
     end
     
     def edit
-        @truck = Truck.find(params[:id])
-        @companies = Company.preload(:branches)
-        @branches =  Branch.where(company_id: @truck.id)
+        @company = Company.find(params[:id])
     end
     
     def destroy
-        @company = Company.find(company_params)
+        @company = Company.find(params[:id])
         @company.destroy if (@company)
-        redirect_to company_url
+        redirect_to companies_url
     end
     
     private

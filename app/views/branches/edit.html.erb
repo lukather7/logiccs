@@ -1,0 +1,11 @@
+<h1>支店編集</h1>
+<%= form_for(@branch) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+    
+    <%= f.label :company_id, class:"label label-danger width100" %>
+    <div class="white"><%= @branch.company.name_e %></div>
+  <%= f.hidden_field :company_id, value: @branch.company_id %>
+  <%= f.label :name, "English branch name", class:"label label-danger width100" %>
+  <%= f.text_field :name, class:"form-control" %>
+  <%= f.submit "Regist Branch", class:"btn btn-primary" %>
+<% end %>

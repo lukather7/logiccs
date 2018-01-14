@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :company
   belongs_to :branch
-  has_many :truckrelationships, foreign_key: :user_id
+  has_many :truckrelationships, foreign_key: :user_id, dependent: :destroy
   has_many :trucks, through: :truckrelationships, dependent: :destroy
 
   before_save { self.email = self.email.downcase }

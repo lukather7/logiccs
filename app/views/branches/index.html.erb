@@ -7,6 +7,7 @@
          <th class="logiccs_table">ID</th>
          <th class="logiccs_table">会社名</th>
          <th class="logiccs_table">支店名</th>
+         <th colspan="2" class="logiccs_table">オペレーション</th>
          </tr>
      </thead> 
     <% @branch.each do |b| %>
@@ -14,6 +15,9 @@
           <tr><td><%= b.id %></td>
               <td><%= b.company.name_e %></td>
               <td><%= b.name %></td>
+              <td><%= link_to "Edit", edit_branch_path(b), class:"btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Delete", b,  class:"btn btn-xs btn-danger", method: :delete, data: { confirm: "You sure?" } %></td>
+
            </tr>
        </tbody>  
      

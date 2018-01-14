@@ -41,6 +41,26 @@ class BranchesController < ApplicationController
         @branch = Branch.all.order("created_at ASC")
     end
     
+    def destroy
+        @branch = Branch.find(params[:id])
+        @branch.destroy if (@branch)
+        redirect_to branches_url
+    end
+    
+    def edit
+        @branch = Branch.find(params[:id])
+    end
+    
+    def update
+        @branch = Branch.find(params[:id])
+        if (@branch.update(branch_params))
+            flash[:success] = "Branch update Done"
+            redirect_to branches_url
+        else
+            render :edit
+        end
+    end
+
     private
       def branch_params
         params.require(:branch).permit(:name, :company_id)

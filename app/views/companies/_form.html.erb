@@ -1,0 +1,7 @@
+<%= form_for(@company) do |f| %>
+  <%= f.label :name_e, "English company name", class:"label label-danger width100" %>
+  <%= f.text_field :name_e, class:"form-control" %>
+  <%= f.label :name_j, "Japanese company name", class:"label label-danger width100" %>
+  <%= f.text_field :name_j, class:"form-control" %>
+  <%= f.submit "Regist Company", class:"btn btn-primary" %>
+<% end %>

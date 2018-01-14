@@ -4,12 +4,12 @@ class Truck < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  has_many :maintains
+  has_many :maintains, dependent: :destroy
   has_many :truckhistories, dependent: :destroy
   has_many :truckrelationships, dependent: :destroy
   has_many :users, through: :truckrelationships
 
-  has_many :loginotes
+  has_many :loginotes, dependent: :destroy
 
   validates :company_id, presence: true
   validates :branch_id, presence: true

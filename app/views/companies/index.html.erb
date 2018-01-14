@@ -9,6 +9,8 @@
        <tbody>
           <tr><td><%= c.id %></td>
               <td><%= c.name_j %></td>
+              <td><%= link_to "Edit", edit_c, class:"btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Delete", c,  class:"btn btn-xs btn-danger", method: :delete, data: { confirm: "You sure?" } %></td>
        </tbody>  
      
     <% end %> 

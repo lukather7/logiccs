@@ -22,6 +22,18 @@ class CompaniesController < ApplicationController
         @companies = Company.all.order("created_at ASC")
     end
     
+    def edit
+        @truck = Truck.find(params[:id])
+        @companies = Company.preload(:branches)
+        @branches =  Branch.where(company_id: @truck.id)
+    end
+    
+    def destroy
+        @company = Company.find(company_params)
+        @company.destroy if (@company)
+        redirect_to company_url
+    end
+    
     private
       def company_params
         params.require(:company).permit(:name_e, :name_j)

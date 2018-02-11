@@ -24,9 +24,9 @@ function update_branchFortruck(val, objectkind) {
     
    $.ajax({
         url: "/branches/update_branch_truckmenus",
-        type: "POST",
         data: {company : val},
-        dataType: "script",
+         type: "POST",
+       dataType: "script",
     });
 
 }

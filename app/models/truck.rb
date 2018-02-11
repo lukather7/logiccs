@@ -10,6 +10,7 @@ class Truck < ActiveRecord::Base
   has_many :users, through: :truckrelationships
 
   has_many :loginotes, dependent: :destroy
+  has_many :tirehistories, dependent: :destroy
 
   validates :company_id, presence: true
   validates :branch_id, presence: true

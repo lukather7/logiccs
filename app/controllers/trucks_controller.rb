@@ -82,6 +82,37 @@ class TrucksController < ApplicationController
     redirect_to trucks_url
   end
   
+  
+  def tirerotation
+    @truck = Truck.find(params[:id])
+    @hist_ar = Array.new
+    @hist_ar <<  @truck.tirehistories.where(index: 0).last
+    @hist_ar <<  @truck.tirehistories.where(index: 1).last
+    @hist_ar <<  @truck.tirehistories.where(index: 2).last
+    @hist_ar <<  @truck.tirehistories.where(index: 3).last
+    @hist_ar <<  @truck.tirehistories.where(index: 4).last
+    if (@truck.wheels > 4)
+      @hist_ar <<  @truck.tirehistories.where(index: 5).last
+      @hist_ar <<  @truck.tirehistories.where(index: 6).last
+    end
+    if (@truck.wheels > 6)
+      @hist_ar <<  @truck.tirehistories.where(index: 7).last
+      @hist_ar <<  @truck.tirehistories.where(index: 8).last
+    end
+    if (@truck.wheels > 8)
+      @hist_ar <<  @truck.tirehistories.where(index: 9).last
+      @hist_ar <<  @truck.tirehistories.where(index: 10).last
+    end
+    
+    if (@truck.wheels == 10)
+        render :rotation_10
+    elsif (@truck.wheels == 8)
+        render :rotation_8
+    else
+    end
+  end
+  
+  
 private
   def truck_params
     params.require(:truck).permit(:company_id, :branch_id,

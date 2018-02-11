@@ -1,0 +1,60 @@
+// Place all the styles related to the Tirehistories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#rotation {
+    background-color: #fff;
+}
+
+#rotation h2 {
+    color: #000;
+}
+
+#rotation table td {
+    text-align: center;
+}
+
+table#truck_fig {
+    background-color: #fff;
+}
+
+
+table#truck_fig td {
+    text-align: center;
+    width: 16.6%;
+    border-top: none;
+}
+
+table#truck_fig td.tb-top {
+    border-top: 2px solid #000;
+}
+
+table#rotation td {
+    width: 12.5%;
+}
+
+table#rotation td:first-child {
+    width: 6%;
+}
+
+table#rotation td:nth-child(2) {
+    width: 19%;
+}
+
+
+#truck_fig .tb-none {
+    border-color: #fff;
+    border-width: 0;
+}
+
+#truck_fig .tb-left {
+    border-left: 2px solid #000;
+}
+
+#truck_fig .tb-bottom {
+    border-bottom: 2px solid #000;
+}
+
+#truck_fig .tb-right {
+    border-right: 2px solid #000;
+}

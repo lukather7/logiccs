@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck_id: 
+  index: 
+  serialno: MyString
+
+two:
+  truck_id: 
+  index: 
+  serialno: MyString

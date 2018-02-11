@@ -31,10 +31,13 @@ Rails.application.routes.draw do
       get 'record'
       get 'initset'
       post 'recordinit'
+      get  'tirerotation'
     end
   end
   resources :truckrelationships,  only: [:create, :destroy]
   resources :truckhistories,      only: [:create, :index, :destroy]
+
+  resources :tirehistories
 
   resources :partscosts
   resources :laborcosts
@@ -46,5 +49,6 @@ Rails.application.routes.draw do
   
   resources :oilprices
   resources :loginotes
+  
 end
   

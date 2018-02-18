@@ -22,7 +22,7 @@ class TrucksController < ApplicationController
       redirect_to @truck
     else
      @companies = Company.preload(:branches)
-     @branches =  (@user != nil) ? Branch.where(company_id: @user.id) : {}
+     @branches =  (current_user != nil) ? Branch.where(company_id: current_user.company.id) : {}
 
       flash.now[:alert] = "failed to register"
       render 'new'
@@ -32,13 +32,13 @@ class TrucksController < ApplicationController
   def edit
     @truck = Truck.find(params[:id])
     @companies = Company.preload(:branches)
-    @branches =  Branch.where(company_id: @truck.id)
+    @branches =  Branch.where(company_id: @truck.company.id)
   end
   
   def update
     @truck = Truck.find(params[:id])
     @companies = Company.preload(:branches)
-    @branches =  Branch.where(company_id: @truck.id)
+    @branches =  Branch.where(company_id: @truck.company.id)
     if (@truck.update(truck_params))
       redirect_to @truck
     else
@@ -108,6 +108,8 @@ class TrucksController < ApplicationController
         render :rotation_10
     elsif (@truck.wheels == 8)
         render :rotation_8
+    elsif (@truck.wheels == 6)
+        render :rotation_6
     else
     end
   end

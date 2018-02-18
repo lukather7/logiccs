@@ -31,12 +31,14 @@
     <%= f.number_field :ps_oil, class:'form-control' %>      
   </div>
   <div class="col-md-3">
+    <%= f.label :tm_oil, 'Transmission Oil', class:'label label-danger width100 ' %>
+    <%= f.number_field :ps_oil, class:'form-control' %>      
+  </div>
+  <div class="col-md-3">
     <%= f.label :df_oil, class:'label label-danger width100 ' %>
     <%= f.number_field :df_oil, class:'form-control' %>      
   </div>
-</div>
-<!--   3段目　-->
-<div class="row">
+
   <div class="col-md-3">
     <%= f.label :air_filter, class:'label label-danger width100 ' %>
     <%= f.number_field :air_filter, class:'form-control' %>
@@ -53,15 +55,14 @@
     <%= f.label :clutch_oil, class:'label label-danger width100 ' %>
     <%= f.number_field :clutch_oil, class:'form-control' %>      
   </div>
-</div>
-<!--   4段目　-->
-<div class="row">
+
+
   <div class="col-md-3">
     <%= f.label :coolant, class:'label label-danger width100 ' %>
     <%= f.number_field :coolant, class:'form-control' %>
   </div>
   <div class="col-md-3">
-    <%= f.label :grease, class:'label label-danger width100 ' %>
+    <%= f.label :grease, "Grease Up", class:'label label-danger width100 ' %>
     <%= f.number_field :grease, class:'form-control' %>      
   </div>
   <div class="col-md-3">
@@ -72,11 +73,9 @@
     <%= f.label :spark_plug, class:'label label-danger width100 ' %>
     <%= f.number_field :spark_plug, class:'form-control' %>      
   </div>
-</div>
-<!--   5段目　-->
-<div class="row">
+
   <div class="col-md-3">
-    <%= f.label :clutch_kit, class:'label label-danger width100 ' %>
+    <%= f.label :clutch_kit, "Clutch & Booster kit", class:'label label-danger width100 ' %>
     <%= f.number_field :clutch_kit, class:'form-control' %>
   </div>
   <div class="col-md-3">
@@ -88,13 +87,14 @@
     <%= f.number_field :filter_ps_oil, class:'form-control' %>      
   </div>
   <div class="col-md-3">
-    <%= f.label :timing_belt_eg, class:'label label-danger width100 ' %>
+    <%= f.label :timing_belt_eg, "Timing Belt Engine", class:'label label-danger width100 ' %>
     <%= f.number_field :timing_belt_eg, class:'form-control' %>      
   </div>
-</div>
+  <div class="col-md-3">
+    <%= f.label :timing_belt_ac, "Timing Belt Aircon", class:'label label-danger width100 ' %>
+    <%= f.number_field :timing_belt_ac, class:'form-control' %>      
+  </div>
 
-<!--  6段目　-->
-<div class="row">
   <div class="col-md-3">   
    <%= f.label :filter_axle, class:'label label-danger width100 ' %>
    <%= f. number_field :filter_axle, class:'form-control' %> 
@@ -111,16 +111,17 @@
    <%= f.label :gasket_rear_wheel, class:'label label-danger width100' %>
    <%= f.number_field :gasket_rear_wheel, class:'form-control' %>
   </div> 
-</div>
- 
-<!-- 7段目 -->
-<div class="row">
+
   <div class="col-md-3">
     <%= f.label :seal_oil_front_wheel,class:'label label-danger width100' %>
     <%= f.number_field :seal_oil_front_wheel,class:'form-control' %>
   </div>
   <div class="col-md-3">
-    <%= f.label :wheel_grease, class:'label label-danger width100' %>
+    <%= f.label :seal_oil_rear_wheel,class:'label label-danger width100' %>
+    <%= f.number_field :seal_oil_rear_wheel,class:'form-control' %>
+  </div>
+  <div class="col-md-3">
+    <%= f.label :wheel_grease, "Wheel(HUB) Grease", class:'label label-danger width100' %>
     <%= f.number_field :wheel_grease, class:'form-control' %>
   </div>  
 </div>

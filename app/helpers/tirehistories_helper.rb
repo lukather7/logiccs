@@ -32,9 +32,24 @@ module TirehistoriesHelper
         rot_table[0]
 
     elsif (truck.wheels == 6)
-
+        rot_table = [
+            [h[0], h[1], h[2], h[3], h[4], h[5], h[6]],
+            [h[0], h[3], h[4], h[1], h[2], h[5], h[6]],
+            [h[0], h[3], h[4], h[5], h[6], h[1], h[2]],
+            [h[0], h[1], h[2], h[5], h[6], h[3], h[4]],
+            [h[0], h[5], h[6], h[1], h[2], h[3], h[4]],
+        ]
+        rot_table[0]
     elsif (truck.wheels == 4)
-
+        rot_table = [
+            # S     A     B     C    D
+            [h[0], h[1], h[2], h[3], h[4]],
+            [h[2], h[3], h[4], h[0], h[1]],
+            [h[4], h[0], h[1], h[2], h[3]],
+            [h[1], h[2], h[3], h[4], h[0]],
+            [h[3], h[4], h[0], h[1], h[2]],
+        ]
+        rot_table[0]
     end
           
   end

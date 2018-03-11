@@ -1,89 +1,89 @@
 <%= form_for(@truck, html:{class:"form-horizontal"}) do |f| %>
     <%= render 'shared/error_messages', objects: f.object %>
-<div class="row">
- <div class="col-md-3">
-      <%= f.label :company_id, class:"label label-danger width100" %>
-      <%= f.collection_select(:company_id, @companies, :id, :name_e,  
-            {:include_blank => "Please Select"},
-            {:onchange => "update_branchFortruck(this.value, 'truck')"} ) %>
- </div>
- <div class="col-md-3">
-      <%= f.label :branch_id, class:"label label-danger width100" %>
-      <div id="branch_select">
-        <%= render partial:'trucks/branch_menu', locals:{obj: :truck, branches: @branches } %>
-      </div>
- </div>
- <div class="col-md-3">
-      <%= f.label :number, "Number Plate", class:"label label-danger width100" %>
-      <%= f.text_field :number, class:"form-control" %>
- </div>
- <div class="col-md-3">
-      <%= f.label :vehicleid, "Vehicle ID", class:"label label-danger width100" %>
-      <%= f.text_field :vehicleid, class:"form-control" %>
- </div>
- 
-</div> 
-<div class="row"> 
- <div class="col-md-3">
-      <%= f.label :engine, class:"label label-danger width100" %>
-      <%= f.select(:engine, {Diesel:"Diesel", CNG:"CNG"},  
-            {:include_blank => "Please Select"}) %>
- </div>
- <div class="col-md-3">
-      <%= f.label :maker, class:"label label-danger width100" %>
-      <%= f.text_field :maker, class:"form-control" %>
- </div>
- <div class="col-md-3">
-      <%= f.label :model, class:"label label-danger width100" %>
-      <%= f.text_field :model, class:"form-control" %>
- </div>
- <div class="col-md-3">
-      <%= f.label :wheels, class:"label label-danger width100" %>
-      <%= f.select(:wheels, ["10", "8", "6"].map {|e| [e,e]},  
-            {:include_blank => "Please Select"}) %>
-  </div>
-  <div class="col-md-3">
-      <%= f.label :body, class:"label label-danger width100" %>
-      <%= f.text_field :body, class:"form-control" %>
-  </div>
-
-</div>
-<div class="row">
- <div class="col-md-3">
-      <%= f.label :e_oil, "Engine Oil (litter)", class:"label label-danger width100" %>
-      <%= f.text_field :e_oil, class:"form-control" %>
- </div>
- <div class="col-md-3">
-      <%= f.label :tm_oil, "Transmission Oil (litter)", class:"label label-danger width100" %>
-      <%= f.text_field :tm_oil, class:"form-control" %>
- </div>
-  <div class="col-md-3">
-      <%= f.label :df_oil, "Differencial Oil (litter)", class:"label label-danger width100" %>
-      <%= f.text_field :df_oil, class:"form-control" %>
- </div>
- <div class="col-md-3">
-      <%= f.label :tire, class:"label label-danger width100" %>
-      <%= f.text_field :tire, class:"form-control" %>
- </div>
-
-</div>
-<div class="row">
- <div class="col-md-3">
-      <%= f.label :initmileage,"Initial Mileage", class:"label label-danger width100" %>
-      <%= f.text_field :initmileage, class:"form-control" %>
- </div>
- <div class="col-md-3">
-    <%= f.label :purchase, "Purchase date", class:"label label-danger width100" %>
-    <%= f.date_select :purchase, start_year: 1990 %>
- </div>
- <div class="col-md-3">
-     <div class="form-group">
-     <%= f.label :image, "Truck Image File", class:"label label-danger width100" %>
-     <%= f.file_field :image, class:'form-control btn btn-default filestyle', "data-buttonText": "choose File" %>
+    <div class="row">
+     <div class="col-md-3">
+          <%= f.label :company_id, class:"label label-danger width100" %>
+          <%= f.collection_select(:company_id, @companies, :id, :name_e,  
+                {:include_blank => "Please Select"},
+                {:onchange => "update_branchFortruck(this.value, 'truck')"} ) %>
      </div>
- </div>
- <div class="col-md-3">
-      <%= f.submit "Registor Truck", class:"btn btn-primary" %>
- </div>
-</div>
+     <div class="col-md-3">
+          <%= f.label :branch_id, class:"label label-danger width100" %>
+          <div id="branch_select">
+            <%= render partial:'trucks/branch_menu', locals:{obj: :truck, branches: @branches } %>
+          </div>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :number, "Number Plate", class:"label label-danger width100" %>
+          <%= f.text_field :number, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :vehicleid, "Vehicle ID", class:"label label-danger width100" %>
+          <%= f.text_field :vehicleid, class:"form-control" %>
+     </div>
+    </div> 
+    
+    <div class="row"> 
+     <div class="col-md-3">
+          <%= f.label :engine, class:"label label-danger width100" %>
+          <%= f.select(:engine, {Diesel:"Diesel", CNG:"CNG"},  
+                {:include_blank => "Please Select"}) %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :maker, class:"label label-danger width100" %>
+          <%= f.text_field :maker, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :model, class:"label label-danger width100" %>
+          <%= f.text_field :model, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :wheels, class:"label label-danger width100" %>
+          <%= f.select(:wheels, ["10", "6", "4"].map {|e| [e,e]},  
+                {:include_blank => "Please Select"}) %>
+      </div>
+     <div class="col-md-3">
+          <%= f.label :body, class:"label label-danger width100" %>
+          <%= f.text_field :body, class:"form-control" %>
+      </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-md-3">
+          <%= f.label :e_oil, "Engine Oil (litter)", class:"label label-danger width100" %>
+          <%= f.text_field :e_oil, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :tm_oil, "Transmission Oil (litter)", class:"label label-danger width100" %>
+          <%= f.text_field :tm_oil, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :df_oil, "Differencial Oil (litter)", class:"label label-danger width100" %>
+          <%= f.text_field :df_oil, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :tire, class:"label label-danger width100" %>
+          <%= f.text_field :tire, class:"form-control" %>
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-md-3">
+          <%= f.label :initmileage,"Initial Mileage", class:"label label-danger width100" %>
+          <%= f.text_field :initmileage, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+        <%= f.label :purchase, "Purchase date", class:"label label-danger width100" %>
+        <%= f.date_select :purchase, start_year: 1990 %>
+     </div>
+     <div class="col-md-3">
+         <div class="form-group">
+         <%= f.label :image, "Truck Image File", class:"label label-danger width100" %>
+         <%= f.file_field :image, class:'form-control btn btn-default filestyle', "data-buttonText": "choose File" %>
+         </div>
+     </div>
+     <div class="col-md-3">
+          <%= f.submit "Registor Truck", class:"btn btn-primary" %>
+     </div>
+    </div>
 <% end %>

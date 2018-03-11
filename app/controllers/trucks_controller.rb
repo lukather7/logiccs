@@ -110,6 +110,8 @@ class TrucksController < ApplicationController
         render :rotation_8
     elsif (@truck.wheels == 6)
         render :rotation_6
+    elsif (@truck.wheels == 4)
+        render :rotation_4
     else
     end
   end

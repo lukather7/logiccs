@@ -1,0 +1,176 @@
+<%= link_to "Back to Karte", karte_path(@truck), class:"btn btn-danger" %>
+<%= render "tirehistories/modal", truck: @truck %>
+<% rot_ar = makearray_tire(@truck, @hist_ar)%>
+
+<div class="container">
+    <div class="row" id="rotation">
+        <h2>タイヤローテーション表</h2>
+        <div class="col-xs-4">
+            <table class="table" id="truck_fig">
+                <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="4" class="tb-top tb-left tb-right">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="4" class="tb-left tb-right">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-top tb-left tb-right">A</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-top tb-left tb-right">B</td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-left tb-right"><%= tire_sn(rot_ar[1]) %></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right"><%= tire_sn(rot_ar[2]) %></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-left tb-right"></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-top">&nbsp;</td>
+                    <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                    <td class="tb-top">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-bottom">&nbsp;</td>
+                    <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                    <td class="tb-bottom">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td></td>
+                    <td class="tb-left tb-right">C</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right">D</td>
+                    <td>&nbsp;</td></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-left tb-right"><%= tire_sn(rot_ar[3]) %></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right"><%= tire_sn(rot_ar[4]) %></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right">E</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-left tb-right"><%= tire_sn(rot_ar[0]) %></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-8">
+            <table class="table table-striped table-bordered" id="rotation">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>タイヤコード</td>
+                        <td>購入年</td>
+                        <td>0km</td>
+                        <td>20,000km</td>
+                        <td>40,000km</td>
+                        <td>60,000km</td>
+                        <td>80,000km</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><%= lasttire(@hist_ar[1], @truck, 1) %></td>
+                        <td><%= lasttiredate(@hist_ar[1]) %></td>
+                        <td>A</td>
+                        <td>D</td>
+                        <td>B</td>
+                        <td>E</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><%= lasttire(@hist_ar[2], @truck, 2) %></td>
+                        <td><%= lasttiredate(@hist_ar[2]) %></td>
+                        <td>B</td>
+                        <td>E</td>
+                        <td>C</td>
+                        <td>A</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><%= lasttire(@hist_ar[3], @truck, 3) %></td>
+                        <td><%= lasttiredate(@hist_ar[3]) %></td>
+                        <td>C</td>
+                        <td>A</td>
+                        <td>D</td>
+                        <td>B</td>
+                        <td>E</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><%= lasttire(@hist_ar[4], @truck, 4) %></td>
+                        <td><%= lasttiredate(@hist_ar[4]) %></td>
+                        <td>D</td>
+                        <td>B</td>
+                        <td>E</td>
+                        <td>C</td>
+                        <td>A</td>
+                    </tr>
+
+                    <tr>
+                        <td>spare</td>
+                        <td><%= lasttire(@hist_ar[0], @truck, 0) %></td>
+                        <td><%= lasttiredate(@hist_ar[0]) %></td>
+                        <td>E</td>
+                        <td>C</td>
+                        <td>A</td>
+                        <td>D</td>
+                        <td>B</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            タイヤの表
+        </div>
+    </div>
+</div>

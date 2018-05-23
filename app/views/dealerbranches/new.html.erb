@@ -1,0 +1,11 @@
+<%= form_for(@dealerbranch) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+    
+    <%= f.label :company_id, class:"label label-danger width100" %>
+    <%= f.collection_select(:dealercompany_id, Dealercompany.all, :id, :name,  
+          {:include_blank => "Please Select"} ) %>
+
+  <%= f.label :name, "Dealer branch name", class:"label label-danger width100" %>
+  <%= f.text_field :name, class:"form-control" %>
+  <%= f.submit "Regist Dealer Branch", class:"btn btn-primary" %>
+<% end %>

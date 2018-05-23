@@ -1,0 +1,12 @@
+<% if @truck != nil %>
+$("#truck_maker").val("<%= @truck.maker %>");
+$("#truck_wheels").val("<%= @truck.wheels %>");
+$("#truck_engine").val("<%= @truck.engine %>");
+// $("#truck_body").val("<%= @truck.body %>");
+$("#truck_e_oil").val("<%= @truck.e_oil %>");
+$("#truck_tm_oil").val("<%= @truck.tm_oil %>");
+$("#truck_df_oil").val("<%= @truck.df_oil %>");
+$("#truck_tire").val("<%= @truck.tire %>");
+<% else %>
+ alert("Same Model not found in this company/branch");
+<% end %>

@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="kartetable col-xs-12">
-     <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).first %>
+     <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).last %>
      <% cost = @nextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
      <% array = ["air_filter", "air_drier", "brake_oil", "clutch_oil",
        "coolant", "grease", "cng_filter", "spark_plug", "clutch_kit", 

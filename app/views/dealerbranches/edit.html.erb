@@ -1,0 +1,11 @@
+<h1>ディーラー支店編集</h1>
+<%= form_for(@dealerbranch) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+    
+    <%= f.label :dealercompany_id, class:"label label-danger width100" %>
+    <div class="white"><%= @dealerbranch.dealercompany.name %></div>
+  <%= f.hidden_field :dealercompany_id, value: @dealerbranch.dealercompany_id %>
+  <%= f.label :name, "Dealer branch name", class:"label label-danger width100" %>
+  <%= f.text_field :name, class:"form-control" %>
+  <%= f.submit "Regist Dealer Branch", class:"btn btn-primary" %>
+<% end %>

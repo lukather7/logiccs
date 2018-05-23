@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218114825) do
+ActiveRecord::Schema.define(version: 20180513113519) do
 
   create_table "branches", force: :cascade do |t|
     t.integer  "company_id"
@@ -60,6 +60,37 @@ ActiveRecord::Schema.define(version: 20180218114825) do
   end
 
   add_index "costbases", ["company_id"], name: "index_costbases_on_company_id"
+
+  create_table "dealerbranches", force: :cascade do |t|
+    t.integer  "dealercompany_id"
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "dealerbranches", ["dealercompany_id"], name: "index_dealerbranches_on_dealercompany_id"
+
+  create_table "dealercompanies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dealerusers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "position"
+    t.integer  "branch_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "password_digest"
+    t.integer  "dealercompany_id"
+    t.integer  "dealerbranch_id"
+  end
+
+  add_index "dealerusers", ["branch_id"], name: "index_dealerusers_on_branch_id"
+  add_index "dealerusers", ["dealerbranch_id"], name: "index_dealerusers_on_dealerbranch_id"
+  add_index "dealerusers", ["dealercompany_id"], name: "index_dealerusers_on_dealercompany_id"
 
   create_table "loginotes", force: :cascade do |t|
     t.integer  "truck_id"

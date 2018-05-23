@@ -10,6 +10,14 @@ class TrucksController < ApplicationController
     @truck = Truck.new
   end
   
+  
+  def params_copy
+ #    data: {company : company_id, branch: branch_id, model: modelname},
+ 
+     @truck = Truck.where(company_id: params[:company], branch_id: params[:branch], model: params[:model]).last
+  end
+  
+  
   def create
     @truck = Truck.new(truck_params)
     if (@truck.save)

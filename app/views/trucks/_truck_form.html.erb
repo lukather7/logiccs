@@ -42,6 +42,11 @@
           <%= f.select(:wheels, ["10", "6", "4"].map {|e| [e,e]},  
                 {:include_blank => "Please Select"}) %>
       </div>
+     </div>
+     <div class="row">
+     <div class="col-md-offset-6 col-md-3">
+          <%= link_to "Copy", "#", {class:'btn btn-success', onclick:"js_param_copy();"} %>
+     </div> 
      <div class="col-md-3">
           <%= f.label :body, class:"label label-danger width100" %>
           <%= f.text_field :body, class:"form-control" %>

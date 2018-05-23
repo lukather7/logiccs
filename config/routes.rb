@@ -46,9 +46,17 @@ Rails.application.routes.draw do
   
   post 'branches/update_branch_usermenus' => 'branches#update_branch_usermenus', as: :branch_usermenus
   post 'branches/update_branch_truckmenus' => 'branches#update_branch_truckmenus', as: :branch_truckmenus
+ 
+  post 'dealerbranches/update_branch_usermenus' => 'dealerbranches#update_branch_usermenus', as: :dealerbranch_usermenus
+
+  post 'trucks/params_copy' => "trucks#params_copy"
   
   resources :oilprices
   resources :loginotes
+  
+  resources :dealercompanies
+  resources :dealerbranches
+  resources :dealerusers
   
 end
   

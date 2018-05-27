@@ -1,5 +1,6 @@
 <% if @truck != nil %>
 $("#truck_maker").val("<%= @truck.maker %>");
+console.log("<%= @truck.wheels %>");
 $("#truck_wheels").val("<%= @truck.wheels %>");
 $("#truck_engine").val("<%= @truck.engine %>");
 // $("#truck_body").val("<%= @truck.body %>");

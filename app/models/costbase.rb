@@ -18,7 +18,7 @@ class Costbase < ActiveRecord::Base
            ["tm_oil", "air_filter", "brake_oil", "clutch_oil", "coolant", "clutch_kit", "battery", "timing_belt_eg", "timing_belt_ac" ], #200000
            ["coolant", "battery", "wheel_grease" ], #240000
        ]
-       index = mileage / 40000
+       index = (mileage / 40000) % 6
        except_parts = except_array[index]
         except_parts.each do |e|
            eval("self.#{e} = 0")

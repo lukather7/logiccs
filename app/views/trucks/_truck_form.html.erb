@@ -86,6 +86,8 @@
          <%= f.label :image, "Truck Image File", class:"label label-danger width100" %>
          <%= f.file_field :image, class:'form-control btn btn-default filestyle', "data-buttonText": "choose File" %>
          </div>
+        <%= image_tag @truck.image.url ,class:"img-responsive" if @truck.image.path.present? %>
+
      </div>
      <div class="col-md-3">
           <%= f.submit "Registor Truck", class:"btn btn-primary" %>

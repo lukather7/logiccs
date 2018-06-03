@@ -22,16 +22,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
  # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
+#  def filename
+#    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+#  end
 
  # ファイル名は日本語が入ってくると嫌なので、下記のようにしてみてもいい。
  # 日付(20131001.jpgみたいなファイル名)で保存する
   def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
+   
+   if original_filename.present?
+     time = Time.now
+     name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+     name.downcase
+    else
+     name = nil
+    end
   end
 
 end

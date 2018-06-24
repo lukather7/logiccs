@@ -1,0 +1,22 @@
+ <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@ap_person) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+
+      <%= f.label :company_id, class:'white' %>
+      
+      <%= f.collection_select(:company_id, @companies, :id, :name_e,  
+            {:include_blank => "Please Select"},
+
+            ) %>
+  
+    
+    <%= f.label :name, class:'white' %>
+    <%= f.text_field :name %>
+    
+    <%= f.label :email, class:'white' %>
+    <%= f.text_field :email %>
+
+
+    <%= f. submit "Create Approval Person", class: "btn btn-large btn-danger" %>
+   <% end %>
+  </div>

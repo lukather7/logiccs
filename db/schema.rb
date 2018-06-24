@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513113519) do
+ActiveRecord::Schema.define(version: 20180610113406) do
+
+  create_table "approvers", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "approvers", ["company_id"], name: "index_approvers_on_company_id"
 
   create_table "branches", force: :cascade do |t|
     t.integer  "company_id"

@@ -57,6 +57,6 @@ Rails.application.routes.draw do
   resources :dealercompanies
   resources :dealerbranches
   resources :dealerusers
-  
+  resources :approvers
 end
   

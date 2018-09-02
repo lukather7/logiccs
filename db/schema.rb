@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610113406) do
+ActiveRecord::Schema.define(version: 20180902163546) do
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "company_id"
@@ -67,9 +67,42 @@ ActiveRecord::Schema.define(version: 20180610113406) do
     t.datetime "updated_at",           null: false
     t.string   "type"
     t.integer  "seal_oil_rear_wheel"
+    t.integer  "totalcost"
+    t.string   "extra1"
+    t.integer  "extra1parts"
+    t.integer  "extra1labor"
+    t.string   "extra2"
+    t.integer  "extra2parts"
+    t.integer  "extra2labor"
+    t.string   "extra3"
+    t.integer  "extra3parts"
+    t.integer  "extra3labor"
+    t.string   "extra4"
+    t.integer  "extra4parts"
+    t.integer  "extra4labor"
+    t.string   "extra5"
+    t.integer  "extra5parts"
+    t.integer  "extra5labor"
+    t.string   "extra6"
+    t.integer  "extra6parts"
+    t.integer  "extra6labor"
+    t.string   "extra7"
+    t.integer  "extra7parts"
+    t.integer  "extra7labor"
+    t.string   "extra8"
+    t.integer  "extra8parts"
+    t.integer  "extra8labor"
+    t.string   "extra9"
+    t.integer  "extra9parts"
+    t.integer  "extra9labor"
+    t.string   "extra10"
+    t.integer  "extra10parts"
+    t.integer  "extra10labor"
+    t.integer  "sendbooking_id"
   end
 
   add_index "costbases", ["company_id"], name: "index_costbases_on_company_id"
+  add_index "costbases", ["sendbooking_id"], name: "index_costbases_on_sendbooking_id"
 
   create_table "dealerbranches", force: :cascade do |t|
     t.integer  "dealercompany_id"
@@ -129,6 +162,17 @@ ActiveRecord::Schema.define(version: 20180610113406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "sendbookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "truck_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sendbookings", ["truck_id"], name: "index_sendbookings_on_truck_id"
+  add_index "sendbookings", ["user_id"], name: "index_sendbookings_on_user_id"
 
   create_table "tirehistories", force: :cascade do |t|
     t.integer  "truck_id"

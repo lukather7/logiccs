@@ -25,6 +25,23 @@ class VehicleKartesController < ApplicationController
 
     end
     
+    
+    def booking
+        @truck = Truck.find(params[:id])
+        @loginote = @truck.loginotes.build
+        @loginotes = @truck.loginotes
+        company = @truck.company
+        model = @truck.model
+
+
+       @partscost = Partscost.where(model: model, company_id: company.id)
+       @laborcost = Laborcost.where(model: model, company_id: company.id)
+
+       @partscostarray = []
+       milesagestep = [40000, 80000, 120000, 160000, 200000, 240000]
+
+    end
+    
     def show
     end
     

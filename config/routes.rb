@@ -42,7 +42,8 @@ Rails.application.routes.draw do
   resources :partscosts
   resources :laborcosts
   
-  get 'kartes/:id' => 'vehicle_kartes#karte', as: :karte
+  get 'kartes/:id'   => 'vehicle_kartes#karte', as: :karte
+  get 'bookings/:id' => 'vehicle_kartes#booking', as: :booking
   
   post 'branches/update_branch_usermenus' => 'branches#update_branch_usermenus', as: :branch_usermenus
   post 'branches/update_branch_truckmenus' => 'branches#update_branch_truckmenus', as: :branch_truckmenus
@@ -58,5 +59,10 @@ Rails.application.routes.draw do
   resources :dealerbranches
   resources :dealerusers
   resources :approvers
+  
+  #resources :bookings, only: [:create, :destroy]
+  
+  get '/sendbookings/:truck_id' => 'sendbookings#create', as: :sendbooking
+  
 end
   

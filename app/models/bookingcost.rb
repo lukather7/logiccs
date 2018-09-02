@@ -1,0 +1,2 @@
+class Bookingcost < Costbase
+end

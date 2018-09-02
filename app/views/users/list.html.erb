@@ -40,8 +40,11 @@
           </td>
           <td>
             <% between = nextm - mileage %>
-            <% btnclass = (between <= 2000) ? "btn-danger" : "btn-primary" %>
-            <button class="btn <%= btnclass %>">Booking</button>
+            <% if (between <= 2000) %>
+              <%= link_to "Booking", booking_path(truck.id), class:"btn btn-danger" %>
+            <% else %>
+              <button class="btn btn-primary">Booking</button>
+            <% end %>
             <%= link_to "Karte", karte_path(truck.id), class: 'btn btn-success' %>
 
           </td>

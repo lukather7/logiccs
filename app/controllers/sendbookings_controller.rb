@@ -17,10 +17,11 @@ class SendbookingsController < ApplicationController
 
  #      @partscostarray = []
  #     milesagestep = [40000, 80000, 120000, 160000, 200000, 240000]        
-       name = Dir::Tmpname.make_tmpname("", "")
+       @name = Dir::Tmpname.make_tmpname("", "")
+       # @nameが承認のランダム番号
+       
        
        @sendbook = Sendbooking.new
-       binding.pry
        lcost.id = nil
        pcost.id = nil
        atr_lcost = lcost.attributes
@@ -31,19 +32,41 @@ class SendbookingsController < ApplicationController
        @sendbook = Sendbooking.new
        @sendbook.build_bookinglaborcost(atr_lcost)
        @sendbook.build_bookingpartscost(atr_pcost)
+       @sendbook.name = @name
+       @sendbook.save
+       @approve_url = "https://" + ENV['MY_HOSTNAME'] + approve_path + "?apid=" + @name
 
-       
+ 
        pdf = render_to_string pdf: "sendbooking_#{@truck.id}",
-                           layout: 'vehicle_kartes/pdf.html', 
-                           template: 'vehicle_kartes/order.pdf.erb'
+                           layout: 'pdf.html', 
+                           template: 'sendbookings/order.pdf.erb'
 
 
+#        binding.pry
+        
+        filepathname = "/tmp/" + @name + ".pdf"
+        File.open(filepathname, "w") {|t|
+            t.binmode
+            t.write pdf
+        }
+        
+        # filepathname = "/tmp/t20181014-1945-1d9rmo9.pdf"
+        #randomseed = 
+        
 
         approvers = Approver.where(company_id: @truck.company_id)
+        binding.pry
 
         approvers.each do |member|
-          # send_appvorver_mail(member, pdf) 
+            ApproveMailer.deliver_email(member, filepathname).deliver_now
         end
 
+        redirect_to :back 
+    end
+    
+    
+    def approve
+        @sendbook = Sendbooking.find_by(name: params[:apid])
+        @sendbook.update({done:true});
     end
 end

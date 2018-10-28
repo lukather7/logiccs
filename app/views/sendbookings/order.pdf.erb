@@ -1,0 +1,124 @@
+<style type="text/css">
+#pdf_cname {
+    font-size:1.1rem;
+    font-weight: 500;
+}
+</style>
+<h2>Attn: </h2>
+<h3> Approve URL:  <a href="<%= @approve_url %>"><%= @approve_url %></a>  </h3>
+<h3>Maintenance Order Sheet for Plate#:<%= @truck.number %>(<%= @truck.maker %>:<%= @truck.model %>) Mileage check~<%= number_with_delimiter(@truck.next_mileage) %>km</h3>
+<div class"row">
+     <% array = ["oil_filter", "air_filter", "fuel_filter", "ps_oil", "tm_oil", "df_oil", "air_drier", "brake_oil", "clutch_oil",
+       "coolant", "grease", "cng_filter", "spark_plug", "clutch_kit", 
+       "battery", "filter_ps_oil", "timing_belt_eg", "timing_belt_ac",
+       "filter_axle", "softwasher", "gasket_front_wheel", "gasket_rear_wheel",
+       "seal_oil_front_wheel", "wheel_grease"] %>
+     <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).first %>
+     <% pcost = @nextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
+     <% total = 0 %>
+     <%# oil_price = @truck.e_oil * Oilprice.first.price %>
+     <%# total += oil_price %>
+     <% temp = 0 %>
+     <% array.each do |e| %>
+        <% eval("temp = pcost.#{e} if pcost.#{e} != '' && pcost.#{e} != nil") ; total += temp %>
+        <% eval("pcost.#{e} = ' ' if temp == 0") %>
+     <% end %>     
+     <% partstotal = total %>
+
+     <% @lnextcosts = Laborcost.where(company_id: @truck.company_id, model: @truck.model).first %>
+     <% lcost = @lnextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
+     <% ltotal = 0 %>
+     <% temp = 0 %>
+     <%# l_oil_price = 380 %>
+     <%# ltotal += l_oil_price %>
+     <% array.each do |e| %>
+        <% eval("temp = lcost.#{e} if lcost.#{e} != '' && lcost.#{e} != nil") ; ltotal += temp %>
+        <% eval("lcost.#{e} = ' ' if temp == 0") %>
+     <% end %> 
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr class="info">
+                <td>company</td>
+                <td>branch</td>
+                <td>maker</td>
+                <td>model_name</td>
+                <td>category</td>
+                <td>number_tire</td>
+                <td>engine</td>
+                <td>Company ID</td>
+                <td>Number of Vehicle</td>
+            </tr>
+        </thead>
+        <tbody>
+            <td id="pdf_cname"><%= @truck.company.name_e %></td>
+            <td><%= @truck.branch.name %></td>
+            <td><%= @truck.maker %></td>
+            <td><%= @truck.model %></td>
+            <td><%= @truck.body %></td>
+            <td><%= @truck.wheels %></td>
+            <Td><%= @truck.engine %></Td>
+            <td><%= @truck.vehicleid %></td>
+            <td><%= @truck.number %></td>
+        <tr class="info">
+            <% array[0..8].each do |e| %>
+                <td><%= e %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <% array[0..8].each do |e| %>
+                <td><%= eval("pcost.#{e}") %></td>
+            <% end %>
+        </tr>
+        <tr class="active">
+            <% array[0..8].each do |e| %>
+                <td><%= eval("lcost.#{e}") %></td>
+            <% end %>
+        </tr>
+        <tr class="info">
+            <% array[9..17].each do |e| %>
+                <td><%= e %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <% array[9..17].each do |e| %>
+                <td><%= eval("pcost.#{e}") %></td>
+            <% end %>
+        </tr>           
+        <tr class="active">
+            <% array[9..17].each do |e| %>
+                <td><%= eval("lcost.#{e}") %></td>
+            <% end %>
+        </tr> 
+        <tr class="info">
+            <% array[18..23].each do |e| %>
+                <td><%= e %></td>
+            <% end %>
+            <td>Sub Total</td>
+            <td><b>Grand Total</b></td>
+        </tr>
+        <tr>
+            <% array[18..23].each do |e| %>
+                <td><%= eval("pcost.#{e}") %></td>
+            <% end %>
+            <td><%= total %></td>
+            <td><b><%= total + ltotal %></b></td>
+        </tr>           
+        <tr class="active">
+            <% array[18..23].each do |e| %>
+                <td><%= eval("lcost.#{e}") %></td>
+            <% end %>
+            <td><%= ltotal %></td>
+            <td>&nbsp</td>
+        </tr>
+        <tr>
+            <td colspan="5">Signature:</td>
+        </tr>
+        <tr>
+            <td colspan="5">Signature:</td>
+        </tr>
+        </tbody>      
+    </table>
+    <% Time.zone = 'Bangkok' %>
+    Issue Date <%= Time.zone.now.strftime("%Y/%m/%d %H:%M") %>
+</div>

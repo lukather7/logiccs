@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180902163546) do
+ActiveRecord::Schema.define(version: 20181021113407) do
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "company_id"
@@ -167,8 +167,9 @@ ActiveRecord::Schema.define(version: 20180902163546) do
     t.integer  "user_id"
     t.integer  "truck_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "done",       default: false
   end
 
   add_index "sendbookings", ["truck_id"], name: "index_sendbookings_on_truck_id"

@@ -64,5 +64,8 @@ Rails.application.routes.draw do
   
   get '/sendbookings/:truck_id' => 'sendbookings#create', as: :sendbooking
   
+  
+  get '/approve' => 'sendbookings#approve', as: :approve
+  
 end
   

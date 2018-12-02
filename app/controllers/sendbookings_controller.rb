@@ -65,8 +65,20 @@ class SendbookingsController < ApplicationController
     end
     
     
+    
     def approve
         @sendbook = Sendbooking.find_by(name: params[:apid])
+#        @sendbook.update({done:true});
+    end
+    
+    def approveOK
+        @sendbook = Sendbooking.find(params[:sendbooking][:id])
         @sendbook.update({done:true});
     end
+
+    def approveCancel
+        @sendbook = Sendbooking.find(params[:sendbooking][:id])       
+        
+    end
+
 end

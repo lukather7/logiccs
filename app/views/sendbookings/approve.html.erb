@@ -1,2 +1,23 @@
 
-<h1> Your Approvement is established </h1>
+<div class="col-lg-offset-3 col-lg-6 white">
+    
+    
+    <h4>If you approve OrderNo# <%= @sendbook.name %>,<br><br> Please Click "Approve" below</h4>
+    
+    <%= form_for(@sendbook, url: approve_ok_path) do |f| %>
+    
+    
+       <%= f.hidden_field :id %>
+       <%= f.submit "Approve", class:"btn btn-success" %>
+    <% end %>
+    
+    
+    <h3>Or to be canceled , Please Click "Cancel" below</h3>
+    
+    <%= form_for(@sendbook, url: approve_cancel_path) do |f| %>
+
+       <%= f.hidden_field :id %>
+       <%= f.submit "Cancel", class:"btn btn-danger " %>
+    <% end %>
+    
+</div>

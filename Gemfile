@@ -64,3 +64,6 @@ gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'rails_12factor', group: :production
 gem 'fog'
+
+gem 'dotenv-rails'
+

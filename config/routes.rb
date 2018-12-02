@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   
   
   get '/approve' => 'sendbookings#approve', as: :approve
-  
+  patch '/approveOK' => 'sendbookings#approveOK', as: :approve_ok
+  patch '/approveCancel' => 'sendbookings#approveCancel', as: :approve_cancel
 end
   

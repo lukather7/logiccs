@@ -1,6 +1,6 @@
 module DealersessionsHelper
   def current_dealer_user
-    @current_user ||= DealerUser.find_by(id: session[:dealeruser_id])
+    @current_user ||= Dealeruser.find_by(id: session[:duser_id])
   end
 
   def dealer_logged_in?

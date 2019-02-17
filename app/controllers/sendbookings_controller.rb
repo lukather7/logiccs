@@ -55,13 +55,16 @@ class SendbookingsController < ApplicationController
         
 
         approvers = Approver.where(company_id: @truck.company_id)
-        binding.pry
+#        binding.pry
 
         approvers.each do |member|
             ApproveMailer.deliver_email(member, filepathname).deliver_now
         end
 
-        redirect_to :back 
+        Logithread.create(dealercompany_id: @truck.dealercompany_id, truck_id: @truck.id, seed: @name)
+
+
+        redirect_to list_user_url(current_user)
     end
     
     

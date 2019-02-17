@@ -5,28 +5,28 @@
     <%= form_for(@dealeruser) do |f| %>
     <%= render 'shared/error_messages', objects: f.object %>
 
-      <%= f.label :dealercompany_id %>
+      <%= f.label :dealercompany_id, class:'white' %>
       
       <%= f.collection_select(:dealercompany_id, @companies, :id, :name,  
             {:include_blank => "Please Select"},
             {:onchange => "update_branchForDealeruser(this.value, 'user')"} 
             ) %>
             
-      <%= f.label :branch_id %>
+      <%= f.label :branch_id, class:'white'  %>
       <div id="branch_select">
         <%= render partial:'users/branch_menu',  locals:{obj: :user, branches: @branches } %>
       </div>
     
-    <%= f.label :name %>
+    <%= f.label :name, class:'white'  %>
     <%= f.text_field :name %>
     
-    <%= f.label :email %>
+    <%= f.label :email, class:'white'  %>
     <%= f.text_field :email %>
 
-    <%= f.label :password %>
+    <%= f.label :password, class:'white'  %>
     <%= f.password_field :password %>
     
-    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.label :password_confirmation, "Confirmation", class:'white'  %>
     <%= f.password_field :password_confirmation %>
     
     <%= f. submit "Create my account", class: "btn btn-large btn-danger" %>

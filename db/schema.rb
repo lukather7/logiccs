@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181021113407) do
+ActiveRecord::Schema.define(version: 20181223111142) do
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "company_id"
@@ -145,6 +145,30 @@ ActiveRecord::Schema.define(version: 20181021113407) do
   add_index "loginotes", ["truck_id", "created_at"], name: "index_loginotes_on_truck_id_and_created_at"
   add_index "loginotes", ["truck_id"], name: "index_loginotes_on_truck_id"
 
+  create_table "logiposts", force: :cascade do |t|
+    t.integer  "logithread_id"
+    t.datetime "date"
+    t.string   "content"
+    t.integer  "dealeruser_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "logiposts", ["dealeruser_id"], name: "index_logiposts_on_dealeruser_id"
+  add_index "logiposts", ["logithread_id"], name: "index_logiposts_on_logithread_id"
+
+  create_table "logithreads", force: :cascade do |t|
+    t.string   "seed"
+    t.integer  "dealercompany_id"
+    t.integer  "truck_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.date     "complete"
+  end
+
+  add_index "logithreads", ["dealercompany_id"], name: "index_logithreads_on_dealercompany_id"
+  add_index "logithreads", ["truck_id"], name: "index_logithreads_on_truck_id"
+
   create_table "maintains", force: :cascade do |t|
     t.integer  "truck_id"
     t.date     "action"
@@ -218,16 +242,18 @@ ActiveRecord::Schema.define(version: 20181021113407) do
     t.integer  "e_oil"
     t.integer  "tm_oil"
     t.string   "tire"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "df_oil"
     t.integer  "initmileage"
     t.date     "purchase"
     t.string   "image"
+    t.integer  "dealercompany_id"
   end
 
   add_index "trucks", ["branch_id"], name: "index_trucks_on_branch_id"
   add_index "trucks", ["company_id"], name: "index_trucks_on_company_id"
+  add_index "trucks", ["dealercompany_id"], name: "index_trucks_on_dealercompany_id"
 
   create_table "users", force: :cascade do |t|
     t.integer  "company_id"

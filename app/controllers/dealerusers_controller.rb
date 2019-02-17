@@ -1,6 +1,6 @@
 class DealerusersController < ApplicationController
 #  before_action :logged_in_user, only: [:show, :edit, :update, :list]
-  before_action :logged_in_user, only: [:show, :list, :dashboard]
+  before_action :dlogged_in_user, only: [:show, :list, :dashboard]
 
   def index
     @dealerusers = Dealeruser.all.order(:dealercompany_id, :name)
@@ -26,7 +26,10 @@ class DealerusersController < ApplicationController
   end
   
   def show
-    redirect_to controller: 'users', action: 'list', id: params[:id]
+   # redirect_to controller: 'dealerusers', action: 'list', id: params[:id]
+   @duser = dcurrent_user
+   @dcompany = @duser.dealercompany
+   @logithreads = Logithread.where(dealercompany_id: @dcompany.id).order("created_at DESC")
   end
   
   def list

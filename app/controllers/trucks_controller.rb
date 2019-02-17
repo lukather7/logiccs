@@ -130,7 +130,7 @@ private
     params.require(:truck).permit(:company_id, :branch_id,
              :maker, :model, :body, :wheels, :engine, :vehicleid,
              :number, :purchase, :e_oil, :tm_oil, :tire, :df_oil, :initmileage,
-             :image)
+             :image, :dealercompany_id)
 
   end
 end

@@ -66,4 +66,18 @@
  <div class="col-md-3">
             <%= link_to "List", trucks_path, class:"btn btn-danger" %>
  </div>
+
+
+</div>
+
+<div class="row">
+ <div class="xol-xs-3">
+  <% if @truck.dealercompany != nil %>
+
+   <div class="col-md-3">
+       <span class="label label-danger width100">Dealercompany</span>
+       <span class="logiccs_table"><%= @truck.dealercompany.name %></span>
+   </div>
+  <% end %>
+ </div>
 </div>

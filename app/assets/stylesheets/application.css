@@ -10,6 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
  */
+
+body.static_pages_home a {
+    color: #ffd700;
+}
+
+body.dealerusers_show .logitable a {
+    color: #ffffff;
+}
+
+span.notice_loginote {
+    background-color: yellow;
+    color: #000;
+}

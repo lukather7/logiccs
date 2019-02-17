@@ -93,4 +93,15 @@
           <%= f.submit "Registor Truck", class:"btn btn-primary" %>
      </div>
     </div>
+    
+    <div class="row">
+         <div class="col-xs-3">
+              
+              <%= f.label :dealercompany_id, "Dealercompany", class:"label label-danger width100" %>
+              
+              <%= f.collection_select :dealercompany_id , Dealercompany.all, :id, :name %>
+              
+         </div>
+
+    </div>
 <% end %>

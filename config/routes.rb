@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'logithreads/create'
+
+  get 'logithreads/index'
+
+  get 'logithreads/destroy'
+
+  get 'logiposts/index'
+
   get 'admin', to: 'admin#index'
 
   get 'new/trackhistories'
@@ -18,6 +26,14 @@ Rails.application.routes.draw do
   get     'login' , to: 'sessions#new'
   post    'login' , to: 'sessions#create'
   delete  'logout', to: 'sessions#destroy'
+  
+  get     'dlogin', to: 'dsessions#new'
+  post    'dlogin', to: 'dsessions#create'
+  delete  'dlogout', to: 'dsessions#destroy'
+  
+  
+  resources :dealerusers
+  
   resources :users do
     member do
       get 'dashboard'
@@ -68,5 +84,15 @@ Rails.application.routes.draw do
   get '/approve' => 'sendbookings#approve', as: :approve
   patch '/approveOK' => 'sendbookings#approveOK', as: :approve_ok
   patch '/approveCancel' => 'sendbookings#approveCancel', as: :approve_cancel
+  
+  
+  get '/access' => 'logithreads#access', as: :access
+  get '/confirm/:id' => "logithreads#confirm", as: :confirm
+  
+  resources :logithreads do
+    member do
+      resources :logiposts
+    end
+  end
 end
   

@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require fixed_midashi_src
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 

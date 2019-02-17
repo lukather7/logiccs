@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def dlogged_in_user
+    unless dlogged_in? && @dcurrent_user
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to dlogin_url
+    end
+  end
   
   
   def logged_in_dealeruser

@@ -46,6 +46,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.14.30)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (9.0.6)
     carrierwave (1.1.0)
@@ -62,6 +64,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     dotiw (3.1.1)
       actionpack (>= 3)
       i18n
@@ -240,6 +246,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -339,14 +347,17 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   dotiw
   execjs
   fog
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails (>= 2.9.0)
   pg
   pry-byebug
   rails (= 4.2.7.1)

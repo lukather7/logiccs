@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  logithread_id: 
+  data: 2018-12-09
+  content: MyString
+  dealearuser_id: 
+
+two:
+  logithread_id: 
+  data: 2018-12-09
+  content: MyString
+  dealearuser_id: 

@@ -1,0 +1,29 @@
+// Place all the styles related to the logiposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-left {
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: left;
+    color: #000;
+    background-color: #CCD;
+    margin-bottom: 3px;
+    list-style: none;
+}
+
+.post-right {
+    font-size: 2.5rem;
+
+    width: 100%;
+    text-align: right;
+    color: #000;
+    background-color: #DFD;
+    margin-bottom: 3px;
+    list-style: none;
+
+}
+
+.no-disc-style {
+    list-style: none;
+}

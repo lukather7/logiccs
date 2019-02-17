@@ -24,5 +24,8 @@ module Logiccs
     config.active_record.raise_in_transactional_callbacks = true
     
     config.assets.paths << "#{Rails.root}/app/assets/stylesheets/font-awesome-4.7.0/css/"
+    config.time_zone = 'Bangkok'
+    config.active_record.default_timezone = :local
+
   end
 end

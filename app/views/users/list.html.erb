@@ -36,6 +36,7 @@
           <%# next mileage %>
           <td>
             <%#= ((m /cycle) + 1) * cycle %>
+            <% cycle = 40000 %>
             <%= nextm = truck.next_mileage(cycle) %>
           </td>
           <td>

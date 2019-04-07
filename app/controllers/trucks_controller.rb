@@ -90,6 +90,11 @@ class TrucksController < ApplicationController
     redirect_to trucks_url
   end
   
+  def adjust
+    @truck = Truck.find(params[:id])
+    @maintain = @truck.maintains.build
+  end
+  
   
   def tirerotation
     @truck = Truck.find(params[:id])

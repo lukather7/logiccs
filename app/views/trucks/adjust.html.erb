@@ -1,0 +1,71 @@
+<div class="row">
+ <div class="col-md-3">
+     <span class="label label-danger width100">Company</span>
+　　 <span class="logiccs_table"><%= @truck.company.name_e if @truck.company %></span>
+  </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Branch</span>
+     <span class="logiccs_table"><%= @truck.branch.name %></span>
+ </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Number Plate</span>
+     <span class="logiccs_table"> <%= @truck.number %></span>
+ </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Vehicle Id</span>
+     <span class="logiccs_table"><%= @truck.vehicleid %></span>
+ </div>
+</div> 
+
+<div class="row">
+ <div class="col-md-3">
+     <span class="label label-danger width100">Initial Milage</span>
+　　 <span class="logiccs_table"><%= @truck.initmileage %></span>
+  </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Last Mileage</span>
+     <span class="logiccs_table"><%= @truck.last_mileage %></span>
+ </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Next Mileage</span>
+     <span class="logiccs_table"> <%= @truck.next_mileage %></span>
+ </div>
+ <div class="col-md-3">
+     <span class="label label-danger width100">Vehicle Id</span>
+     <span class="logiccs_table"><%= @truck.vehicleid %></span>
+ </div>
+</div> 
+
+<hr>
+
+<%= form_for(@maintain) do |f| %>
+
+    <% if @maintain.errors.any? %>
+        <%= render 'shared/error_messages', objects: @maintain %>
+    
+    <% end %>
+    <div class="col-xs-3">
+        <%= f.label :action, "Date", class:"control-label white" %>
+        <div class="input-group">
+            <%= f.text_field :action, class:"form-control dateonly" %>
+           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+    </div>
+    
+    <div class="col-xs-3">
+        <%= f.label :mileage, "Mileage", class:"control-label white" %>
+        <%= f.number_field :mileage, class:"form-control" %>
+    </div>
+
+    <div class="col-xs-3">
+        <%= f.label :content, "Comment", class:"control-label white" %>
+        <%= f.text_field :content, class:"form-control" %>
+    </div>
+    <%= f.hidden_field :nextmileage, value:@maintain.truck.next_mileage %>
+    <div class="col-xs-3">
+        <br>
+        <%= f.hidden_field :truck_id, value: @truck.id %>
+        <%= f.hidden_field :nextmileage, value: @truck.next_mileage %>
+        <%= f.submit "Adjust", class:"btn-lg btn-success" %>
+    </div>
+<% end %>

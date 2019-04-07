@@ -1,3 +1,4 @@
+
 <% partscost = Partscost.find_by(model: @truck.model, company_id: @truck.company_id) %>
 <% laborcost = Laborcost.find_by(model: @truck.model, company_id: @truck.company_id) %>
 <% if laborcost == nil || partscost == nil %>
@@ -46,21 +47,11 @@
         </div>
     </div>
     <div class="kartetable col-xs-12">
-     <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).last %>
-     <% cost = @nextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
      <% array = ["air_filter", "air_drier", "brake_oil", "clutch_oil",
-       "coolant", "grease", "cng_filter", "spark_plug", "clutch_kit", 
-       "battery", "filter_ps_oil", "timing_belt_eg", "timing_belt_ac",
-       "filter_axle", "softwasher", "gasket_front_wheel", "gasket_rear_wheel",
-       "seal_oil_front_wheel", "wheel_grease"] %>
-     <% total = 0 %>
-     <% oil_price = @truck.e_oil * Oilprice.first.price %>
-     <% total += oil_price %>
-     <% temp = 0 %>
-     <% array.each do |e| %>
-        <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
-     <% end %>     
-     <% partstotal = total %>
+        "coolant", "grease", "cng_filter", "spark_plug", "clutch_kit", 
+        "battery", "filter_ps_oil", "timing_belt_eg", "timing_belt_ac",
+        "filter_axle", "softwasher", "gasket_front_wheel", "gasket_rear_wheel",
+        "seal_oil_front_wheel", "wheel_grease"] %>
       <table class="table table-striped table-bordered table-hover"
         _fixedhead='rows:1; cols:1; bgcolor:darkred;'>
           <thead>
@@ -71,9 +62,25 @@
            <th>gasket_rear_wheel</th><th>seal_oil_front_wheel</th><th>:wheel_grease</th><th>Total Parts/Total Lobor</th>
            <th>Other Costs</th><th>Grand Total</th>
           </thead> 
-        <tbody>     
+          <% displaymileage = @truck.next_mileage - @truck.initmileage %>
+         <tbody>     
+ <!--start -->
+        <% 40000.step(displaymileage, 40000) do |mileage| %>
+ 
         <tr>
-         <td rowspan="2">40,000km</td>
+         <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).last %>
+
+         <% cost = @nextcosts.pickupcost(mileage - 1) %>
+ 
+         <% total = 0 %>
+         <% oil_price = @truck.e_oil * Oilprice.first.price %>
+         <% total += oil_price %>
+         <% temp = 0 %>
+         <% array.each do |e| %>
+            <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
+         <% end %>     
+         <% partstotal = total %>         
+         <td rowspan="2"><%= mileage %></td>
          <td>Parts Costs</td>
          <td><%= oil_price %></td>
          <td><%= cost.oil_filter %></td>
@@ -108,17 +115,16 @@
          <td></td>
 
      </tr>
-     <% @nextcosts = Laborcost.where(company_id: @truck.company_id, model: @truck.model).first %>
-     <% cost = @nextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
-     <% total = 0 %>
-     <% temp = 0 %>
-     <% oil_price = 380 %>
-     <% total += oil_price %>
-     <% array.each do |e| %>
-        <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
-     <% end %>       
-
-     <tr>
+        <tr>
+         <% @nextcosts = Laborcost.where(company_id: @truck.company_id, model: @truck.model).first %>
+         <% cost = @nextcosts.pickupcost(mileage - 1) %>
+         <% total = 0 %>
+         <% temp = 0 %>
+         <% oil_price = 380 %>
+         <% total += oil_price %>
+         <% array.each do |e| %>
+            <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
+         <% end %> 
          <td>Labor Costs</td>
          <td><%= oil_price %></td>
          <td><%= cost.oil_filter %></td>
@@ -152,350 +158,9 @@
          <td></td>
   
      </tr>
-     <tr>
-         <td rowspan="2">80,000km</td>
-         <td>Parts Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td>Labor Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td rowspan="2">120,000km</td>
-         <td>Parts Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td>Labor Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td rowspan="2">160,000km</td>
-         <td>Parts Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td>Labor Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td rowspan="2">200,000km</td>
-         <td>Parts Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td>Labor Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td rowspan="2">240,000km</td>
-         <td>Parts Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-     </tr>
-     <tr>
-         <td>Labor Costs</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
+     
+        <% end %>
+  
      </tbody>
    </table>
  </div>

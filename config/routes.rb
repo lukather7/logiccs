@@ -48,10 +48,14 @@ Rails.application.routes.draw do
       get 'initset'
       post 'recordinit'
       get  'tirerotation'
+      get  'adjust'
+      post 'adjust'
     end
   end
   resources :truckrelationships,  only: [:create, :destroy]
   resources :truckhistories,      only: [:create, :index, :destroy]
+
+  resources :maintains,           only: [:create]
 
   resources :tirehistories
 

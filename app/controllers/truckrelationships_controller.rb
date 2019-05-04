@@ -8,7 +8,7 @@ class TruckrelationshipsController < ApplicationController
     
     def destroy
         @user = User.find(params[:truckrelationship][:user_id])
-        t = Truckrelationship.find_by(params[:id])
+        t = Truckrelationship.find(params[:id])
         t.destroy if (t != nil)
         return redirect_to @user if @user !=nil
         redirect_to root_url

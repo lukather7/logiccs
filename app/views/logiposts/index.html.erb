@@ -21,6 +21,12 @@
     
     <div class="col-xs-8 white">
         
+     <% if dcurrent_user != nil %>
+        <div class="col-xs-12">
+        <%= link_to "Back to top index", dcurrent_user, class:"btn btn-xs btn-danger pull-right" %>
+        </div>
+     <% end %>
+        
         <ul class="white no-disc-style">
             
             <% @posts.each do | post | %>
@@ -47,7 +53,7 @@
                     <%= link_to "OK it was confirmed!!", confirm_path(@thread), class:"btn btn-success " %>
                 </div>
             <% else %>
-                 <span class="btn btn-warning">This thread has confirmed!!</span>
+                 <span class="btn btn-warning">This thread had been completed!!</span>
             <% end %>
         </ul>
         

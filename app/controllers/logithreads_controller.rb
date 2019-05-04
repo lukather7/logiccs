@@ -9,6 +9,10 @@ class LogithreadsController < ApplicationController
   end
 
   def destroy
+    @logithread = Logithread.find(params[:id])
+    @logithread.destroy if (@logithread)
+    
+    redirect_to dcurrent_user if dcurrent_user != nil
   end
   
   def access

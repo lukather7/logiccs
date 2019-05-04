@@ -27,3 +27,8 @@ span.notice_loginote {
     background-color: yellow;
     color: #000;
 }
+
+table.logitable {
+    background-color: #ddd;
+    color: #333;
+}

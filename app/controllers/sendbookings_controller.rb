@@ -60,9 +60,17 @@ class SendbookingsController < ApplicationController
         approvers.each do |member|
             ApproveMailer.deliver_email(member, filepathname).deliver_now
         end
+        
+        if (adminlogged_in?)
+            ApproveMailer.deliver_email(admin_user, filepathname).deliver_now
+        end
 
-        Logithread.create(dealercompany_id: @truck.dealercompany_id, truck_id: @truck.id, seed: @name)
-
+        lgt = Logithread.create(dealercompany_id: @truck.dealercompany_id, truck_id: @truck.id, seed: @name)
+        if (adminlogged_in?)
+            # 作成したLogithreadになりすましマークを付ける
+            lgt.admin_id = admin_user.id
+            lgt.save
+        end
 
         redirect_to list_user_url(current_user)
     end

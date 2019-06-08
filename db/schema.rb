@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181223111142) do
+ActiveRecord::Schema.define(version: 20190608124153) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "company_id"
@@ -164,6 +172,7 @@ ActiveRecord::Schema.define(version: 20181223111142) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.date     "complete"
+    t.integer  "admin_id"
   end
 
   add_index "logithreads", ["dealercompany_id"], name: "index_logithreads_on_dealercompany_id"

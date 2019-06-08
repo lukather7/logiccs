@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   get 'logiposts/index'
 
-  get 'admin', to: 'admin#index'
-
+  get 'admin', to: 'admin#new'
+  post 'admin', to: 'admin#create'
+  get  'adminpanel', to: 'admin#index'
+  
+  get  'admin_setuser', to: "admin#setuser"
+  
   get 'new/trackhistories'
   
   get 'vehicle_kartes/home'
@@ -38,6 +42,7 @@ Rails.application.routes.draw do
     member do
       get 'dashboard'
       get 'list'
+      get 'admin_setuser'
     end
   end
   resources :companies

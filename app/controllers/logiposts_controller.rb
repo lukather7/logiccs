@@ -35,10 +35,17 @@ class LogipostsController < ApplicationController
   def send_mail2user(thread, post)
 
     @truck = thread.truck
-    approvers = Approver.where(company_id: @truck.company_id)
-
-    approvers.each do |member|
-        NoticeMailer.deliver_email(member, thread, post).deliver_now
+    
+    if (thread.admin_id == nil)
+      approvers = Approver.where(company_id: @truck.company_id)
+  
+      approvers.each do |member|
+          NoticeMailer.deliver_email(member, thread, post).deliver_now
+      end
+    else
+      # logithread is faked by admin
+      admin = Admin.find_by(id: thread.admin_id)
+      NoticeMailer.deliver_email(admin, thread, post).deliver_now
     end
     
   end

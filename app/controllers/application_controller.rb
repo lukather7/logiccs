@@ -23,6 +23,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def adminlogged_in_user
+    unless adminlogged_in? && @admin_user
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to admin_url
+    end
+  end
+  
   
   def logged_in_dealeruser
     unless dealer_logged_in?

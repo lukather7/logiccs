@@ -14,12 +14,20 @@ module SessionsHelper
   end
 
 
+  def admin_user
+    @admin_user ||= Admin.find_by(id: session[:admin_id])
+  end
+
   def logged_in?
     !!current_user
   end
 
   def dlogged_in?
     !!dcurrent_user
+  end
+  
+  def adminlogged_in?
+    !!admin_user
   end
 
   def store_location

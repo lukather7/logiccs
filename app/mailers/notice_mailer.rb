@@ -1,12 +1,6 @@
 class NoticeMailer < ApplicationMailer
   default from: "logiccshosoya@gmail.com"
 
-  def test_email
-
-    
-    mail(:to => "lukather7@gmail.com",
-         :subject => "Approve  PDF")
-  end
   
   def deliver_email(user, thread, post)
     @access_url = "https://" + ENV['MY_HOSTNAME'] + access_path + "?apid=" + thread.seed

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 #  before_action :logged_in_user, only: [:show, :edit, :update, :list]
   before_action :logged_in_user, only: [:show, :list, :dashboard]
+  
+  before_action :adminlogged_in_user, only:[:adminsetuser]
+
 
   def index
     @users = User.all.order(:company_id, :name)
@@ -54,6 +57,12 @@ class UsersController < ApplicationController
       flash.now[:danger] = "Update Failed"
       render :edit
     end
+  end
+  
+  def admin_setuser
+    @user = User.find(params[:id])
+    session[:user_id] = @user.id
+    redirect_to @user
   end
   
   private

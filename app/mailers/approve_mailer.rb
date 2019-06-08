@@ -1,15 +1,6 @@
 class ApproveMailer < ApplicationMailer
   default from: "logiccshosoya@gmail.com"
 
-  def test_email
-    attachments['appove.pdf'] = {
-      :content => File.read('sample.pdf', :mode => 'rb'),
-      :transfer_encoding => :binary
-    }
-    
-    mail(:to => "lukather7@gmail.com",
-         :subject => "Approve  PDF")
-  end
   
   def deliver_email(user, filepath)
     attachments['appove.pdf'] = {

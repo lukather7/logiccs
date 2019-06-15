@@ -4,7 +4,7 @@ class Logithread < ActiveRecord::Base
   
   has_many :logiposts, dependent: :destroy
   
-  belongs_to :admin, optional: true
+  belongs_to :admin
   
   def has_confirmed?
     self.complete != nil

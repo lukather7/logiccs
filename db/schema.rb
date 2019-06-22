@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190608124153) do
+ActiveRecord::Schema.define(version: 20190622124412) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -212,8 +212,9 @@ ActiveRecord::Schema.define(version: 20190608124153) do
     t.integer  "truck_id"
     t.integer  "index"
     t.string   "serialno"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.date     "purchasedate"
   end
 
   add_index "tirehistories", ["truck_id"], name: "index_tirehistories_on_truck_id"

@@ -10,13 +10,14 @@ module TirehistoriesHelper
         return link_to(last_t, new_tirehistory_path(truck_id: truck, index: index), class: "btn btn-success btn-xs",
           data:{toggle:"modal", target:"#modal-example"}, remote:true)
     else
-        return link_to(last_t, edit_tirehistory_path(truck.id), class: "btn btn-success btn-xs",
+        tirehistory = Truck.find(truck.id).tirehistories.where(index: index).last
+        return link_to(last_t, edit_tirehistory_path(tirehistory.id), class: "btn btn-success btn-xs",
            data:{toggle:"modal", target:"#modal-example"}, remote:true)
     end
   end
   
   def lasttiredate(tirehist)
-    tirehist != nil ? tirehist.created_at.strftime("%Y/%m/%d") : "--"
+    tirehist != nil && tirehist.purchasedate != nil ? tirehist.purchasedate.strftime("%Y/%m/%d") : "--"
   end
 
   def makearray_tire(truck, histarray)

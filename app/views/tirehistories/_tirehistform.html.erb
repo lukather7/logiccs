@@ -4,6 +4,12 @@
 
 <%= f.text_field :serialno, class: "form-control col-xs-12" %> 
 
+
+<%= f.label :purchasedate, "購入日付", class:"control-label" %>
+
+<%= f.date_field :purchasedate, class:"form-control" %>
+
+
 <%= f.hidden_field :truck_id, value: @truck.id %>
 <%= f.hidden_field :index, value: @index %>
 

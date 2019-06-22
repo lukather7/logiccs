@@ -17,11 +17,28 @@ class TirehistoriesController < ApplicationController
         end
     end
 
+    def edit
+        @tirehistory = Tirehistory.find(params[:id])
+        @truck = @tirehistory.truck
+        @index = @tirehistory.index
+    end
+    
+    def update
+        @tirehistory = Tirehistory.new(tirehistory_params)
+        
+        
+        if (@tirehistory.save)
+            flash[:success] = "Tire History updated"
+            redirect_to tirerotation_truck_url(@tirehistory.truck)
+        else
+
+        end
+    end
 
  private
 
     def tirehistory_params
-       params.require(:tirehistory).permit(:truck_id, :index, :serialno) 
+       params.require(:tirehistory).permit(:truck_id, :index, :serialno, :purchasedate) 
     end
     
 end

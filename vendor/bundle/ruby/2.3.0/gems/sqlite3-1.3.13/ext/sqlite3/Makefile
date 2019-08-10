@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0
+topdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0
 hdrdir = $(topdir)
-arch_hdrdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/x86_64-linux
+arch_hdrdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0/x86_64-linux
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/usr/local/rvm/rubies/ruby-2.3.0
+prefix = $(DESTDIR)/home/ec2-user/.rvm/rubies/ruby-2.3.8
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20170819-1212-9lvlhl
-sitelibdir = $(DESTDIR)./.gem.20170819-1212-9lvlhl
+sitearchdir = $(DESTDIR)./.gem.20190803-4306-1jmhw5u
+sitelibdir = $(DESTDIR)./.gem.20190803-4306-1jmhw5u
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -54,7 +54,7 @@ oldincludedir = $(DESTDIR)/usr/include
 includedir = $(prefix)/include
 localstatedir = $(prefix)/var
 sharedstatedir = $(prefix)/com
-sysconfdir = $(DESTDIR)/etc
+sysconfdir = $(prefix)/etc
 datadir = $(datarootdir)
 datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
@@ -67,8 +67,8 @@ CC = gcc
 CXX = g++
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)
-LIBRUBYARG_STATIC = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)-static
+LIBRUBYARG_SHARED = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)
+LIBRUBYARG_STATIC = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)-static
 empty =
 OUTFLAG = -o $(empty)
 COUTFLAG = -o $(empty)
@@ -112,7 +112,7 @@ RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir --ignore-fail-on-non-empty -p
 MAKEDIRS = /bin/mkdir -p
-INSTALL = /usr/bin/install
+INSTALL = /usr/bin/install -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 644
 COPY = cp
@@ -123,7 +123,7 @@ TOUCH = exit >
 preload = 
 
 libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir) -Wl,-R$(libdir)
+LIBPATH =  -L. -L$(libdir) -Wl,-rpath,$(libdir)
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -134,11 +134,11 @@ extout =
 extout_prefix = 
 target_prefix = /sqlite3
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) -lsqlite3 -lpthread  -lsqlite3 -lpthread -lgmp -ldl -lcrypt -lm   -lc
-ORIG_SRCS = exception.c statement.c database.c sqlite3.c backup.c
+LIBS = $(LIBRUBYARG_SHARED) -lsqlite3 -lpthread  -lsqlite3 -lpthread -ldl -lcrypt -lm   -lc
+ORIG_SRCS = backup.c database.c exception.c sqlite3.c statement.c
 SRCS = $(ORIG_SRCS) 
-OBJS = exception.o statement.o database.o sqlite3.o backup.o
-HDRS = $(srcdir)/statement.h $(srcdir)/sqlite3_ruby.h $(srcdir)/backup.h $(srcdir)/database.h $(srcdir)/exception.h
+OBJS = backup.o database.o exception.o sqlite3.o statement.o
+HDRS = $(srcdir)/sqlite3_ruby.h $(srcdir)/statement.h $(srcdir)/backup.h $(srcdir)/database.h $(srcdir)/exception.h
 TARGET = sqlite3_native
 TARGET_NAME = sqlite3_native
 TARGET_ENTRY = Init_$(TARGET_NAME)
@@ -159,7 +159,7 @@ CLEANLIBS     = $(TARGET).so
 CLEANOBJS     = *.o  *.bak
 
 all:    $(DLLIB)
-static: $(STATIC_LIB) install-rb
+static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
 .PHONY: clean clean-so clean-static clean-rb
 

@@ -8,11 +8,16 @@ Rails.application.routes.draw do
 
   get 'logiposts/index'
 
-  get 'admin', to: 'admin#new'
+  get  'admin', to: 'admin#new'
   post 'admin', to: 'admin#create'
   get  'adminpanel', to: 'admin#index'
-  
+  get  'newadmin', to: "admin#newadmin"
+  post 'createadmin', to: "admin#createadmin"
   get  'admin_setuser', to: "admin#setuser"
+  
+  
+  
+  
   
   get 'new/trackhistories'
   

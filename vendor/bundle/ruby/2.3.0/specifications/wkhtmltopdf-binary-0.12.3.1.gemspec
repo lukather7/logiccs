@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.executables = ["wkhtmltopdf".freeze]
   s.files = ["bin/wkhtmltopdf".freeze]
   s.licenses = ["Apache-2.0".freeze]
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Provides binaries for WKHTMLTOPDF project in an easily accessible package.".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 end

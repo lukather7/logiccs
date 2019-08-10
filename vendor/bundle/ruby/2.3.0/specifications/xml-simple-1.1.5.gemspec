@@ -12,9 +12,8 @@ Gem::Specification.new do |s|
   s.email = "contact@maik-schmidt.de".freeze
   s.homepage = "https://github.com/maik/xml-simple".freeze
   s.licenses = ["Ruby".freeze]
-  s.rubyforge_project = "xml-simple".freeze
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "A simple API for XML processing.".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 end

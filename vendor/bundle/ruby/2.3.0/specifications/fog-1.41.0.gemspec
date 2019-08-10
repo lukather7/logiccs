@@ -18,11 +18,10 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.post_install_message = "------------------------------\nThank you for installing fog!\n\nIMPORTANT NOTICE:\nIf there's a metagem available for your cloud provider, e.g. `fog-aws`,\nyou should be using it instead of requiring the full fog collection to avoid\nunnecessary dependencies.\n\n'fog' should be required explicitly only if:\n- The provider you use doesn't yet have a metagem available.\n- You require Ruby 1.9.3 support.\n------------------------------\n".freeze
   s.rdoc_options = ["--charset=UTF-8".freeze]
-  s.rubyforge_project = "fog".freeze
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "brings clouds to you".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 2
@@ -31,7 +30,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<fog-core>.freeze, ["~> 1.45"])
       s.add_runtime_dependency(%q<fog-json>.freeze, [">= 0"])
       s.add_runtime_dependency(%q<fog-xml>.freeze, ["~> 0.1.1"])
-      s.add_runtime_dependency(%q<json>.freeze, ["< 2.0", ">= 1.8"])
+      s.add_runtime_dependency(%q<json>.freeze, [">= 1.8", "< 2.0"])
       s.add_runtime_dependency(%q<ipaddress>.freeze, ["~> 0.5"])
       s.add_runtime_dependency(%q<fog-aliyun>.freeze, [">= 0.1.0"])
       s.add_runtime_dependency(%q<fog-atmos>.freeze, [">= 0"])
@@ -84,7 +83,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<fog-core>.freeze, ["~> 1.45"])
       s.add_dependency(%q<fog-json>.freeze, [">= 0"])
       s.add_dependency(%q<fog-xml>.freeze, ["~> 0.1.1"])
-      s.add_dependency(%q<json>.freeze, ["< 2.0", ">= 1.8"])
+      s.add_dependency(%q<json>.freeze, [">= 1.8", "< 2.0"])
       s.add_dependency(%q<ipaddress>.freeze, ["~> 0.5"])
       s.add_dependency(%q<fog-aliyun>.freeze, [">= 0.1.0"])
       s.add_dependency(%q<fog-atmos>.freeze, [">= 0"])
@@ -138,7 +137,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<fog-core>.freeze, ["~> 1.45"])
     s.add_dependency(%q<fog-json>.freeze, [">= 0"])
     s.add_dependency(%q<fog-xml>.freeze, ["~> 0.1.1"])
-    s.add_dependency(%q<json>.freeze, ["< 2.0", ">= 1.8"])
+    s.add_dependency(%q<json>.freeze, [">= 1.8", "< 2.0"])
     s.add_dependency(%q<ipaddress>.freeze, ["~> 0.5"])
     s.add_dependency(%q<fog-aliyun>.freeze, [">= 0.1.0"])
     s.add_dependency(%q<fog-atmos>.freeze, [">= 0"])

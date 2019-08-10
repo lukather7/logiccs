@@ -15,11 +15,10 @@ Gem::Specification.new do |s|
   s.files = ["README.rdoc".freeze]
   s.homepage = "http://github.com/geemus/formatador".freeze
   s.rdoc_options = ["--charset=UTF-8".freeze]
-  s.rubyforge_project = "formatador".freeze
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Ruby STDOUT text formatting".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 2

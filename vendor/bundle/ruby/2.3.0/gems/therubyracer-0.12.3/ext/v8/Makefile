@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0
+topdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0
 hdrdir = $(topdir)
-arch_hdrdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/x86_64-linux
+arch_hdrdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0/x86_64-linux
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/usr/local/rvm/rubies/ruby-2.3.0
+prefix = $(DESTDIR)/home/ec2-user/.rvm/rubies/ruby-2.3.8
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20170819-1212-soknzd
-sitelibdir = $(DESTDIR)./.gem.20170819-1212-soknzd
+sitearchdir = $(DESTDIR)./.gem.20190803-4306-h6q896
+sitelibdir = $(DESTDIR)./.gem.20190803-4306-h6q896
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -54,7 +54,7 @@ oldincludedir = $(DESTDIR)/usr/include
 includedir = $(prefix)/include
 localstatedir = $(prefix)/var
 sharedstatedir = $(prefix)/com
-sysconfdir = $(DESTDIR)/etc
+sysconfdir = $(prefix)/etc
 datadir = $(datarootdir)
 datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
@@ -67,8 +67,8 @@ CC = gcc
 CXX = g++
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)
-LIBRUBYARG_STATIC = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)-static
+LIBRUBYARG_SHARED = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)
+LIBRUBYARG_STATIC = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)-static
 empty =
 OUTFLAG = -o $(empty)
 COUTFLAG = -o $(empty)
@@ -81,11 +81,11 @@ debugflags = -ggdb3
 warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings   -Wdeprecated-declarations -Wno-packed-bitfield-compat
 CCDLFLAGS = -fPIC
 CFLAGS   = $(CCDLFLAGS) $(cflags)  -fPIC $(ARCH_FLAG)
-INCFLAGS = -I. -I/home/ubuntu/workspace/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/include -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
+INCFLAGS = -I. -I/home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/include -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
 CPPFLAGS =   $(DEFS) $(cppflags) -Wall -g -rdynamic
 CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
-ldflags  = /home/ubuntu/workspace/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a /home/ubuntu/workspace/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_snapshot.a -L. -fstack-protector -rdynamic -Wl,-export-dynamic
+ldflags  = /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19-x86_64-linux/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_snapshot.a -L. -fstack-protector -rdynamic -Wl,-export-dynamic
 dldflags =  
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -112,7 +112,7 @@ RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir --ignore-fail-on-non-empty -p
 MAKEDIRS = /bin/mkdir -p
-INSTALL = /usr/bin/install
+INSTALL = /usr/bin/install -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 644
 COPY = cp
@@ -123,7 +123,7 @@ TOUCH = exit >
 preload = 
 
 libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir) -Wl,-R$(libdir)
+LIBPATH =  -L. -L$(libdir) -Wl,-rpath,$(libdir)
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -134,10 +134,10 @@ extout =
 extout_prefix = 
 target_prefix = /v8
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) -lpthread  -lpthread -lgmp -ldl -lcrypt -lm   -lc
-ORIG_SRCS = script.cc function.cc value.cc stack.cc context.cc invocation.cc trycatch.cc backref.cc v8.cc message.cc rr.cc gc.cc exception.cc init.cc date.cc locker.cc signature.cc string.cc handles.cc accessor.cc constants.cc primitive.cc template.cc array.cc object.cc external.cc heap.cc constraints.cc
+LIBS = $(LIBRUBYARG_SHARED) -lpthread  -lpthread -ldl -lcrypt -lm   -lc
+ORIG_SRCS = accessor.cc array.cc backref.cc constants.cc constraints.cc context.cc date.cc exception.cc external.cc function.cc gc.cc handles.cc heap.cc init.cc invocation.cc locker.cc message.cc object.cc primitive.cc rr.cc script.cc signature.cc stack.cc string.cc template.cc trycatch.cc v8.cc value.cc
 SRCS = $(ORIG_SRCS) 
-OBJS = script.o function.o value.o stack.o context.o invocation.o trycatch.o backref.o v8.o message.o rr.o gc.o exception.o init.o date.o locker.o signature.o string.o handles.o accessor.o constants.o primitive.o template.o array.o object.o external.o heap.o constraints.o
+OBJS = accessor.o array.o backref.o constants.o constraints.o context.o date.o exception.o external.o function.o gc.o handles.o heap.o init.o invocation.o locker.o message.o object.o primitive.o rr.o script.o signature.o stack.o string.o template.o trycatch.o v8.o value.o
 HDRS = $(srcdir)/rr.h
 TARGET = init
 TARGET_NAME = init
@@ -159,7 +159,7 @@ CLEANLIBS     = $(TARGET).so
 CLEANOBJS     = *.o  *.bak
 
 all:    $(DLLIB)
-static: $(STATIC_LIB) install-rb
+static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
 .PHONY: clean clean-so clean-static clean-rb
 

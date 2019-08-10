@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.3".freeze)
   s.requirements = ["none".freeze]
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Email composition, delivery, and receiving framework (part of Rails).".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
@@ -27,20 +27,20 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<actionpack>.freeze, ["= 4.2.7.1"])
       s.add_runtime_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
       s.add_runtime_dependency(%q<activejob>.freeze, ["= 4.2.7.1"])
-      s.add_runtime_dependency(%q<mail>.freeze, [">= 2.5.4", "~> 2.5"])
-      s.add_runtime_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+      s.add_runtime_dependency(%q<mail>.freeze, ["~> 2.5", ">= 2.5.4"])
+      s.add_runtime_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
     else
       s.add_dependency(%q<actionpack>.freeze, ["= 4.2.7.1"])
       s.add_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
       s.add_dependency(%q<activejob>.freeze, ["= 4.2.7.1"])
-      s.add_dependency(%q<mail>.freeze, [">= 2.5.4", "~> 2.5"])
-      s.add_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+      s.add_dependency(%q<mail>.freeze, ["~> 2.5", ">= 2.5.4"])
+      s.add_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
     end
   else
     s.add_dependency(%q<actionpack>.freeze, ["= 4.2.7.1"])
     s.add_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
     s.add_dependency(%q<activejob>.freeze, ["= 4.2.7.1"])
-    s.add_dependency(%q<mail>.freeze, [">= 2.5.4", "~> 2.5"])
-    s.add_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+    s.add_dependency(%q<mail>.freeze, ["~> 2.5", ">= 2.5.4"])
+    s.add_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
   end
 end

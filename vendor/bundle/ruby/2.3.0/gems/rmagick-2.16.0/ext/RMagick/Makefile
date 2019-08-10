@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0
+topdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0
 hdrdir = $(topdir)
-arch_hdrdir = /usr/local/rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/x86_64-linux
+arch_hdrdir = /home/ec2-user/.rvm/rubies/ruby-2.3.8/include/ruby-2.3.0/x86_64-linux
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/usr/local/rvm/rubies/ruby-2.3.0
+prefix = $(DESTDIR)/home/ec2-user/.rvm/rubies/ruby-2.3.8
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20170819-1212-1cnag7f
-sitelibdir = $(DESTDIR)./.gem.20170819-1212-1cnag7f
+sitearchdir = $(DESTDIR)./.gem.20190803-4306-2ktnwy
+sitelibdir = $(DESTDIR)./.gem.20190803-4306-2ktnwy
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -54,7 +54,7 @@ oldincludedir = $(DESTDIR)/usr/include
 includedir = $(prefix)/include
 localstatedir = $(prefix)/var
 sharedstatedir = $(prefix)/com
-sysconfdir = $(DESTDIR)/etc
+sysconfdir = $(prefix)/etc
 datadir = $(datarootdir)
 datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
@@ -67,8 +67,8 @@ CC = gcc
 CXX = g++
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)
-LIBRUBYARG_STATIC = -Wl,-rpath,'$${ORIGIN}/../lib' -Wl,-R'$${ORIGIN}/../lib' -l$(RUBY_SO_NAME)-static
+LIBRUBYARG_SHARED = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)
+LIBRUBYARG_STATIC = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)-static
 empty =
 OUTFLAG = -o $(empty)
 COUTFLAG = -o $(empty)
@@ -112,7 +112,7 @@ RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir --ignore-fail-on-non-empty -p
 MAKEDIRS = /bin/mkdir -p
-INSTALL = /usr/bin/install
+INSTALL = /usr/bin/install -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 644
 COPY = cp
@@ -123,7 +123,7 @@ TOUCH = exit >
 preload = 
 
 libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir) -Wl,-R$(libdir)
+LIBPATH =  -L. -L$(libdir) -Wl,-rpath,$(libdir)
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -134,11 +134,11 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS =  -lMagickCore  
-LIBS = $(LIBRUBYARG_SHARED)  -lpthread -lgmp -ldl -lcrypt -lm   -lc
-ORIG_SRCS = rminfo.c rmmain.c rmmontage.c rmilist.c rmfill.c rmenum.c rmpixel.c rmutil.c rmimage.c rmstruct.c rmagick.c rmdraw.c
+LIBS = $(LIBRUBYARG_SHARED)  -lpthread -ldl -lcrypt -lm   -lc
+ORIG_SRCS = rmagick.c rmdraw.c rmenum.c rmfill.c rmilist.c rmimage.c rminfo.c rmmain.c rmmontage.c rmpixel.c rmstruct.c rmutil.c
 SRCS = $(ORIG_SRCS) 
-OBJS = rminfo.o rmmain.o rmmontage.o rmilist.o rmfill.o rmenum.o rmpixel.o rmutil.o rmimage.o rmstruct.o rmagick.o rmdraw.o
-HDRS = $(srcdir)/rmagick.h $(srcdir)/extconf.h
+OBJS = rmagick.o rmdraw.o rmenum.o rmfill.o rmilist.o rmimage.o rminfo.o rmmain.o rmmontage.o rmpixel.o rmstruct.o rmutil.o
+HDRS = $(srcdir)/extconf.h $(srcdir)/rmagick.h
 TARGET = RMagick2
 TARGET_NAME = RMagick2
 TARGET_ENTRY = Init_$(TARGET_NAME)
@@ -159,7 +159,7 @@ CLEANLIBS     = $(TARGET).so
 CLEANOBJS     = *.o  *.bak
 
 all:    $(DLLIB)
-static: $(STATIC_LIB) install-rb
+static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
 .PHONY: clean clean-so clean-static clean-rb
 

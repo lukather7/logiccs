@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.email = ["dengqs@dtdream.com".freeze]
   s.homepage = "https://github.com/fog/fog-aliyun".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Fog provider for Aliyun Web Services.".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>.freeze, ["~> 10.0"])
       s.add_development_dependency(%q<rspec>.freeze, ["~> 3.3"])
       s.add_development_dependency(%q<rubocop>.freeze, ["~> 0.40.0"])
-      s.add_development_dependency(%q<mime-types>.freeze, [">= 2.6.2", "~> 2.6"])
+      s.add_development_dependency(%q<mime-types>.freeze, ["~> 2.6", ">= 2.6.2"])
       s.add_development_dependency(%q<pry-nav>.freeze, [">= 0"])
       s.add_runtime_dependency(%q<fog-core>.freeze, ["~> 1.27"])
       s.add_runtime_dependency(%q<fog-json>.freeze, ["~> 1.0"])
@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>.freeze, ["~> 10.0"])
       s.add_dependency(%q<rspec>.freeze, ["~> 3.3"])
       s.add_dependency(%q<rubocop>.freeze, ["~> 0.40.0"])
-      s.add_dependency(%q<mime-types>.freeze, [">= 2.6.2", "~> 2.6"])
+      s.add_dependency(%q<mime-types>.freeze, ["~> 2.6", ">= 2.6.2"])
       s.add_dependency(%q<pry-nav>.freeze, [">= 0"])
       s.add_dependency(%q<fog-core>.freeze, ["~> 1.27"])
       s.add_dependency(%q<fog-json>.freeze, ["~> 1.0"])
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>.freeze, ["~> 10.0"])
     s.add_dependency(%q<rspec>.freeze, ["~> 3.3"])
     s.add_dependency(%q<rubocop>.freeze, ["~> 0.40.0"])
-    s.add_dependency(%q<mime-types>.freeze, [">= 2.6.2", "~> 2.6"])
+    s.add_dependency(%q<mime-types>.freeze, ["~> 2.6", ">= 2.6.2"])
     s.add_dependency(%q<pry-nav>.freeze, [">= 0"])
     s.add_dependency(%q<fog-core>.freeze, ["~> 1.27"])
     s.add_dependency(%q<fog-json>.freeze, ["~> 1.0"])

@@ -1,0 +1,24 @@
+<h1 class="white">New Admin Create</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:admin, url: createadmin_path) do |f| %>
+
+      <%= f.label :name, class:'control-label white' %>
+      <%= f.text_field :name, class:'form-control' %>
+
+      <%= f.label :email, class:'control-label white' %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, class:'control-label white' %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+
+      <%= f.label :password_confirm, class:'control-label white' %>
+      <%= f.password_field :password_confirm, class: 'form-control' %>
+
+      <%= f.submit "Add New Admin User", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

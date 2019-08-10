@@ -13,8 +13,10 @@
      
      <% bodyclass = controller.controller_name + "_" + controller.action_name %>
      <body class="<%= bodyclass %>">
-        <%= render 'layouts/header' %>
+       <%= render 'layouts/header' %>
         <div class="container application_yield">
+         <%= render 'layouts/flash_messages' %>
+    
           <%= yield %>
         </div>
      </body>

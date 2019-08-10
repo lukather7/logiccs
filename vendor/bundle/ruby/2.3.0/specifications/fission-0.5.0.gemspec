@@ -14,11 +14,10 @@ Gem::Specification.new do |s|
   s.executables = ["fission".freeze]
   s.files = ["bin/fission".freeze]
   s.homepage = "https://github.com/thbishop/fission".freeze
-  s.rubyforge_project = "fission".freeze
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Command line tool to manage VMware Fusion VMs".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

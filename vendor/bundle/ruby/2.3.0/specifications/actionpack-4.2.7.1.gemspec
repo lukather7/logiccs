@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.3".freeze)
   s.requirements = ["none".freeze]
-  s.rubygems_version = "2.6.8".freeze
+  s.rubygems_version = "3.0.4".freeze
   s.summary = "Web-flow and rendering framework putting the VC in MVC (part of Rails).".freeze
 
-  s.installed_by_version = "2.6.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
@@ -27,16 +27,16 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<activesupport>.freeze, ["= 4.2.7.1"])
       s.add_runtime_dependency(%q<rack>.freeze, ["~> 1.6"])
       s.add_runtime_dependency(%q<rack-test>.freeze, ["~> 0.6.2"])
-      s.add_runtime_dependency(%q<rails-html-sanitizer>.freeze, [">= 1.0.2", "~> 1.0"])
-      s.add_runtime_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+      s.add_runtime_dependency(%q<rails-html-sanitizer>.freeze, ["~> 1.0", ">= 1.0.2"])
+      s.add_runtime_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
       s.add_runtime_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
       s.add_development_dependency(%q<activemodel>.freeze, ["= 4.2.7.1"])
     else
       s.add_dependency(%q<activesupport>.freeze, ["= 4.2.7.1"])
       s.add_dependency(%q<rack>.freeze, ["~> 1.6"])
       s.add_dependency(%q<rack-test>.freeze, ["~> 0.6.2"])
-      s.add_dependency(%q<rails-html-sanitizer>.freeze, [">= 1.0.2", "~> 1.0"])
-      s.add_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+      s.add_dependency(%q<rails-html-sanitizer>.freeze, ["~> 1.0", ">= 1.0.2"])
+      s.add_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
       s.add_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
       s.add_dependency(%q<activemodel>.freeze, ["= 4.2.7.1"])
     end
@@ -44,8 +44,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<activesupport>.freeze, ["= 4.2.7.1"])
     s.add_dependency(%q<rack>.freeze, ["~> 1.6"])
     s.add_dependency(%q<rack-test>.freeze, ["~> 0.6.2"])
-    s.add_dependency(%q<rails-html-sanitizer>.freeze, [">= 1.0.2", "~> 1.0"])
-    s.add_dependency(%q<rails-dom-testing>.freeze, [">= 1.0.5", "~> 1.0"])
+    s.add_dependency(%q<rails-html-sanitizer>.freeze, ["~> 1.0", ">= 1.0.2"])
+    s.add_dependency(%q<rails-dom-testing>.freeze, ["~> 1.0", ">= 1.0.5"])
     s.add_dependency(%q<actionview>.freeze, ["= 4.2.7.1"])
     s.add_dependency(%q<activemodel>.freeze, ["= 4.2.7.1"])
   end

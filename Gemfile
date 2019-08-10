@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json', github: 'flori/json', branch: 'v1.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  branch_id: 
+  wheels: 1
+  vehicleid: MyString
+  number: MyString
+  tire: MyString
+  purchase: 2019-08-24
+  image: MyString
+  dealercompany_id: 
+
+two:
+  company_id: 
+  branch_id: 
+  wheels: 1
+  vehicleid: MyString
+  number: MyString
+  tire: MyString
+  purchase: 2019-08-24
+  image: MyString
+  dealercompany_id: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190622124412) do
+ActiveRecord::Schema.define(version: 20190824123948) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -218,6 +218,24 @@ ActiveRecord::Schema.define(version: 20190622124412) do
   end
 
   add_index "tirehistories", ["truck_id"], name: "index_tirehistories_on_truck_id"
+
+  create_table "trailers", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "wheels"
+    t.string   "vehicleid"
+    t.string   "number"
+    t.string   "tire"
+    t.date     "purchase"
+    t.string   "image"
+    t.integer  "dealercompany_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "trailers", ["branch_id"], name: "index_trailers_on_branch_id"
+  add_index "trailers", ["company_id"], name: "index_trailers_on_company_id"
+  add_index "trailers", ["dealercompany_id"], name: "index_trailers_on_dealercompany_id"
 
   create_table "truckhistories", force: :cascade do |t|
     t.integer  "truck_id"

@@ -30,3 +30,15 @@ function update_branchFortruck(val, objectkind) {
     });
 
 }
+
+
+function update_branchFortrailer(val, objectkind) {
+    
+   $.ajax({
+        url: "/branches/update_branch_trailermenus",
+        data: {company : val},
+         type: "POST",
+       dataType: "script",
+    });
+
+}

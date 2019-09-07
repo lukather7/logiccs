@@ -65,6 +65,9 @@ Rails.application.routes.draw do
   resources :truckrelationships,  only: [:create, :destroy]
   resources :truckhistories,      only: [:create, :index, :destroy]
 
+
+  resources :trailers
+
   resources :maintains,           only: [:create]
 
   resources :tirehistories
@@ -77,6 +80,7 @@ Rails.application.routes.draw do
   
   post 'branches/update_branch_usermenus' => 'branches#update_branch_usermenus', as: :branch_usermenus
   post 'branches/update_branch_truckmenus' => 'branches#update_branch_truckmenus', as: :branch_truckmenus
+  post 'branches/update_branch_trailermenus' => 'branches#update_branch_trailermenus', as: :branch_trailermenus
  
   post 'dealerbranches/update_branch_usermenus' => 'dealerbranches#update_branch_usermenus', as: :dealerbranch_usermenus
 

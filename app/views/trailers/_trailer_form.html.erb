@@ -1,0 +1,88 @@
+<%= form_for(@trailer, html:{class:"form-horizontal"}) do |f| %>
+    <%= render 'shared/error_messages', objects: f.object %>
+    <div class="row">
+     <div class="col-md-3">
+          <%= f.label :company_id, class:"label label-danger width100" %>
+          <%= f.collection_select(:company_id, @companies, :id, :name_e,  
+                {:include_blank => "Please Select"},
+                {:onchange => "update_branchFortrailer(this.value, 'trailer')"} ) %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :branch_id, class:"label label-danger width100" %>
+          <div id="branch_select">
+            <%= render partial:'trucks/branch_menu', locals:{obj: :trailer, branches: @branches } %>
+          </div>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :number, "Number Plate", class:"label label-danger width100" %>
+          <%= f.text_field :number, class:"form-control" %>
+     </div>
+     <div class="col-md-3">
+          <%= f.label :vehicleid, "Vehicle ID", class:"label label-danger width100" %>
+          <%= f.text_field :vehicleid, class:"form-control" %>
+     </div>
+    </div> 
+    
+    <div class="row"> 
+
+     <div class="col-md-3">
+          <%= f.label :wheels, class:"label label-danger width100" %>
+          <%= f.select(:wheels, ["12", "8"].map {|e| [e,e]},  
+                {:include_blank => "Please Select"}) %>
+      </div>
+
+    </div>
+    
+    <div class="row">
+
+     <div class="col-md-3">
+          <%= f.label :tire, class:"label label-danger width100" %>
+          <%= f.text_field :tire, class:"form-control" %>
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-md-3">
+        <%= f.label :purchase, "Purchase date", class:"label label-danger width100" %>
+        <%= f.date_select :purchase, start_year: 1990 %>
+     </div>
+     <div class="col-md-3">
+         <div class="form-group">
+         <%= f.label :image, "Trailer Image File", class:"label label-danger width100" %>
+         <%= f.file_field :image, class:'form-control btn btn-default filestyle', "data-buttonText": "choose File" %>
+         </div>
+        <%#= image_tag @trailer.image.url ,class:"img-responsive" if @trailer.image.path.present? %>
+
+     </div>
+     
+ 
+     <div class="col-md-3">
+        <%= f.label :purchase, "Purchase date", class:"label label-danger width100" %>
+        <%= f.date_select :purchase, start_year: 1990 %>
+     </div>
+     <div class="col-md-3">
+         <div class="form-group">
+         <%= f.label :image, "Truck Image File", class:"label label-danger width100" %>
+         <%= f.file_field :image, class:'form-control btn btn-default filestyle', "data-buttonText": "choose File" %>
+         </div>
+        <%= image_tag @trailer.image.url ,class:"img-responsive" if @trailer.image.path.present? %>
+
+     </div>   
+     <div class="col-md-3">
+         
+      
+          <%= f.submit "Registor Trailer", class:"btn btn-primary" %>
+     </div>
+    </div>
+    
+    <div class="row">
+         <div class="col-xs-3">
+              
+              <%= f.label :dealercompany_id, "Dealercompany", class:"label label-danger width100" %>
+              
+              <%= f.collection_select :dealercompany_id , Dealercompany.all, :id, :name %>
+              
+         </div>
+
+    </div>
+<% end %>

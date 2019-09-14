@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get  'admin', to: 'admin#new'
   post 'admin', to: 'admin#create'
+  delete 'admin', to: 'admin#destroy'
+
   get  'adminpanel', to: 'admin#index'
   get  'newadmin', to: "admin#newadmin"
   post 'createadmin', to: "admin#createadmin"

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-  before_action :adminlogged_in_user, only:[:setuser]
+  before_action :adminlogged_in_user, only:[:setuser, :destroy]
 
   def new
      
@@ -16,6 +16,12 @@ class AdminController < ApplicationController
         flash[:danger] = 'invalid email/password combination'
         render 'new'
       end
+  end
+  
+  def destroy
+    session[:admin_id] = nil
+    session[:user_id] = nil
+    redirect_to root_url
   end
   
   def newadmin

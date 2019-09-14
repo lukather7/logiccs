@@ -14,7 +14,12 @@
 
               <ul class="dropdown-menu">
                 <li><%= link_to "Select User", admin_setuser_path %></li>
+                <% if current_user %>
+                     <li><%= link_to "Settings", dashboard_user_path(current_user) %></li>
+                <% end %>
+                <li><%= link_to "Log out", admin_path, method: "delete" %></li>
               </ul>
+
           </li>
         <% elsif logged_in? %>
           <li><%= link_to "Users", '#' %></li>

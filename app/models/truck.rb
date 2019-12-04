@@ -40,10 +40,14 @@ class Truck < ActiveRecord::Base
   def next_mileage(cycle = 40000)
 #    hist = truckhistories.order("action desc").first
 #    last_mileage = (hist != nil) ? hist.mileage : 0
-    booking = self.maintains.order("action desc").first
+    booking = self.maintains.order("id").last
     im = (initmileage != nil) ? initmileage : 0
-    (booking != nil) ?
+    temp_next = (booking != nil) ?
       (((booking.nextmileage - im) / cycle) + 1 ) * cycle + im : cycle + im
+      
+    check_next = (booking != nil) ? booking.nextmileage + cycle : cycle + im
+    
+    (check_next > temp_next) ? check_next : temp_next
   end
 
   def dummy

@@ -35,7 +35,13 @@ class UsersController < ApplicationController
   def list
     @user = User.find(params[:id])
     @mytrucks = @user.trucks
+    @mytrailers = @user.trailers
   end
+  
+  def trailerlist
+    @user = User.find(params[:id])
+    @mytrailers = @user.trailers
+  end  
 
   def dashboard
     @user = User.find(params[:id])
@@ -43,6 +49,9 @@ class UsersController < ApplicationController
     @branches = (@user != nil) ? Branch.where(company_id: @user.company_id) : {}
     @mytrucks = @user.trucks
     @othertrucks = Truck.where(company_id: @user.company_id, branch_id: @user.branch_id) - @mytrucks
+
+    @mytrailers = @user.trailers
+    @othertrailers = Trailer.where(company_id: @user.company_id, branch_id: @user.branch_id) - @mytrailers
   end
 
   def edit

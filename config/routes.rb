@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     member do
       get 'dashboard'
       get 'list'
+      get 'trailerlist'
       get 'admin_setuser'
     end
   end
@@ -62,17 +63,26 @@ Rails.application.routes.draw do
       get  'tirerotation'
       get  'adjust'
       post 'adjust'
+      get  'adjustmileage'
     end
   end
   resources :truckrelationships,  only: [:create, :destroy]
   resources :truckhistories,      only: [:create, :index, :destroy]
 
+  resources :maintains
 
-  resources :trailers
+  resources :trailers do
+    member do
+      get  'karte'
+    end
+  end
+  resources :trailerrelationships,  only: [:create, :destroy]
+
 
   resources :maintains,           only: [:create]
 
   resources :tirehistories
+  resources :trailertirehistories
 
   resources :partscosts
   resources :laborcosts

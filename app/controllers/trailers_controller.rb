@@ -56,6 +56,67 @@ class TrailersController < ApplicationController
     @trailer.destroy if @trailer
     redirect_to trailers_url
   end
+
+  def tirerotation
+    @trailer = Trailer.find(params[:id])
+    @hist_ar = Array.new
+    @hist_ar <<  @trailer.tirehistories.where(index: 0).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 1).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 2).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 3).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 4).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 5).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 6).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 7).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 8).last
+    if (@trailer.wheels.to_i == 12)
+      @hist_ar <<  @trailer.tirehistories.where(index: 9).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 10).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 11).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 12).last
+    end
+    
+    if (@trailer.wheels.to_i == 12)
+        render :rotation_12
+    elsif (@trailer.wheels.to_i == 8)
+        render :rotation_8
+    elsif (@trailer.wheels == "FULL")
+        render :rotation_full
+    else
+    end
+  end
+  
+  def karte
+    @trailer = Trailer.find(params[:id])
+    wheels = @trailer.wheels
+
+    @hist_ar = Array.new
+    @hist_ar <<  @trailer.tirehistories.where(index: 0).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 1).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 2).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 3).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 4).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 5).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 6).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 7).last
+    @hist_ar <<  @trailer.tirehistories.where(index: 8).last
+    if (@trailer.wheels.to_i == 12)
+      @hist_ar <<  @trailer.tirehistories.where(index: 9).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 10).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 11).last
+      @hist_ar <<  @trailer.tirehistories.where(index: 12).last
+    end
+    
+    if (wheels == "8")
+      render 'rotation_8'
+    elsif (wheels == "12")
+      render 'rotation_12'
+    else
+      render 'rotation_full'
+    end
+  end
+
+
     
 private
   def trailer_params

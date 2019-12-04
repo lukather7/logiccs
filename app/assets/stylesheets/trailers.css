@@ -1,0 +1,22 @@
+#trailerrotation {
+    background-color: #fff;
+}
+
+
+table#trailerrotation td {
+    width: 10%;
+}
+
+table#trailerrotation td:first-child {
+    width: 6%;
+}
+
+table#trailerrotation td:nth-child(2) {
+    width: 14%;
+}
+
+table#trailerrotation td:nth-child(3) {
+    width: 14%;
+}
+
+

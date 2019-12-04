@@ -129,6 +129,10 @@ class TrucksController < ApplicationController
     end
   end
   
+  def adjustmileage
+      @truck = Truck.find(params[:id])
+      @maintains = @truck.maintains.order(:id)
+  end
   
 private
   def truck_params

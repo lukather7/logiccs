@@ -1,0 +1,227 @@
+<%= link_to "Back To TrailerList",  trailerlist_user_path(current_user), class: "btn btn-xs btn-danger" %>
+<%= render "trailertirehistories/modal", truck: @truck %>
+
+        <% rot_ar = makearray_trailertire(@trailer, @hist_ar)%>
+        
+        <%= render 'trailertable', trailer: @trailer %>
+        <div class="row">
+        　　<h2>タイヤローテーション表</h2>
+
+            <div class="col-lg-4">
+                <table class="table table-responsive" id="truck_fig">
+                    <tbody>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tb-bottom">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="tb-top tb-left tb-right">A</td>
+                        <td class="tb-top tb-left tb-right">B</td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-top tb-left tb-right">C</td>
+                        <td class="tb-top tb-left tb-right">D</td>
+                    </tr>
+                    <tr>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[1]) %></td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[2]) %></td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[3]) %></td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[4]) %></td>
+                    </tr>
+                    <tr>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                   <tr>
+                        <td class="tb-top tb-left tb-right">E</td>
+                        <td class="tb-top tb-left tb-right">F</td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-top tb-left tb-right">G</td>
+                        <td class="tb-top tb-left tb-right">H</td>
+                    </tr>
+                    <tr>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[5]) %></td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[6]) %></td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[7]) %></td>
+                        <td class="tb-left tb-right"><%= trailertire_sn(rot_ar[8]) %></td>
+                    </tr>
+                    <tr>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-8">
+                <table class="table table-striped table-bordered" id="trailerrotation">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td class="w10">タイヤコード</td>
+                            <td>初期登録日</td>
+                            <td>2019/2/24</td>
+                            <td>2019/8/24</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><%= trailerlasttire(@hist_ar[1], @trailer, 1) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[1]) %></td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>A</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><%= trailerlasttire(@hist_ar[2], @trailer, 2) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[2]) %></td>
+                            <td>B</td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><%= trailerlasttire(@hist_ar[3], @trailer, 3) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[3]) %></td>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>C</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><%= trailerlasttire(@hist_ar[4], @trailer, 4) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[4]) %></td>
+                            <td>D</td>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><%= trailerlasttire(@hist_ar[5], @trailer, 5) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[5]) %></td>
+                            <td>E</td>
+                            <td>F</td>
+                            <td>E</td>
+                            <td>F</td>
+                            <td>E</td>
+                            <td>F</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><%= trailerlasttire(@hist_ar[6], @trailer, 6) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[6]) %></td>
+                            <td>F</td>
+                            <td>F</td>
+                            <td>F</td>
+                            <td>E</td>
+                            <td>F</td>
+                            <td>E</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td><%= trailerlasttire(@hist_ar[7], @trailer, 7) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[7]) %></td>
+                            <td>G</td>
+                            <td>H</td>
+                            <td>G</td>
+                            <td>H</td>
+                            <td>G</td>
+                            <td>H</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>8</td>
+                            <td><%= trailerlasttire(@hist_ar[8], @trailer, 8) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[8]) %></td>
+                            <td>H</td>
+                            <td>G</td>
+                            <td>H</td>
+                            <td>G</td>
+                            <td>H</td>
+                            <td>G</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>spare</td>
+                            <td><%= trailerlasttire(@hist_ar[0], @trailer, 0) %></td>
+                            <td><%= lasttrailertiredate(@hist_ar[0]) %></td>
+
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <!--タイヤの表-->
+            </div>
+        </div>

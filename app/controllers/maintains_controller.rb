@@ -17,6 +17,16 @@ class MaintainsController < ApplicationController
         end
     end
     
+    def update
+        @maintain = Maintain.find(params[:id])
+        if (@maintain.update(maintain_params))
+            flash[:success] = "Maintainance Record Adjusted Done"
+            redirect_to :back 
+        else
+            flash[:error] = "Please Input Correct Data"
+            redirect_to :back 
+        end
+    end
     
     private
     

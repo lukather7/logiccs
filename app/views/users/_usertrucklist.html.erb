@@ -15,7 +15,7 @@
 			   <tbody>
       <% trucks.each do |truck| %>
        <tr>
-        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= render 'adddeltruckbutton', truck: truck %></td>
+        <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= render 'users/adddeltruckbutton', truck: truck %></td>
         <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.vehicleid %></td>
         <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.number %></td>
         <td class="col-xs-2 col-sm-3 col-md-3 col-lg-4"><%= truck.maker %></td>

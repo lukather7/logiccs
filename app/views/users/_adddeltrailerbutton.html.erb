@@ -1,0 +1,15 @@
+<% if @user.trailer_include?(trailer) %>
+     <%= form_for(@user.trailerrelationships.find_by(trailer_id: trailer.id), html:{:method => :delete}) do |f| %>
+        <%#= render 'shared/error_messages' object: f.object %>
+
+        <%= f.hidden_field :user_id, value:@user.id %>
+        <%= f.hidden_field :trailer_id, value:trailer.id %>
+        <%= f.submit "DEL", class:"btn btn-warning btn-xs" %>
+     <% end %>
+<% else %>
+     <%= form_for(@user.trailerrelationships.build) do |f| %>
+         <%= f.hidden_field :user_id, value:@user.id %>
+         <%= f.hidden_field :trailer_id, value:trailer.id %>
+         <%= f.submit "Add", class:"btn btn-primary btn-xs" %>
+     <% end %>
+<% end %>

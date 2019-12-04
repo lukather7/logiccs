@@ -10,6 +10,7 @@
        <td><%= link_to "Edit", edit_truck_path(truck), class:"btn btn-xs btn-primary" %></td>
        <td><%= link_to "Delete", truck,  class:"btn btn-xs btn-danger", method: :delete, data: { confirm: "You sure?" } %></td>
        <td><%= link_to "Adjust", adjust_truck_path(truck), class:"btn btn-xs btn-success" %></td>
+       <td><%= link_to "Adj. Mileage", adjustmileage_truck_path(truck), class:"btn btn-xs btn-warning" %></td>
    </tr>
 
 <% end %>

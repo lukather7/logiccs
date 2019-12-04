@@ -27,7 +27,7 @@
 
      <div class="col-md-3">
           <%= f.label :wheels, class:"label label-danger width100" %>
-          <%= f.select(:wheels, ["12", "8"].map {|e| [e,e]},  
+          <%= f.select(:wheels, ["8", "12", "FULL"].map {|e| [e,e]},  
                 {:include_blank => "Please Select"}) %>
       </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190824123948) do
+ActiveRecord::Schema.define(version: 20191005120751) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -219,10 +219,20 @@ ActiveRecord::Schema.define(version: 20190824123948) do
 
   add_index "tirehistories", ["truck_id"], name: "index_tirehistories_on_truck_id"
 
+  create_table "trailerrelationships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trailer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "trailerrelationships", ["trailer_id"], name: "index_trailerrelationships_on_trailer_id"
+  add_index "trailerrelationships", ["user_id"], name: "index_trailerrelationships_on_user_id"
+
   create_table "trailers", force: :cascade do |t|
     t.integer  "company_id"
     t.integer  "branch_id"
-    t.integer  "wheels"
+    t.string   "wheels"
     t.string   "vehicleid"
     t.string   "number"
     t.string   "tire"
@@ -236,6 +246,17 @@ ActiveRecord::Schema.define(version: 20190824123948) do
   add_index "trailers", ["branch_id"], name: "index_trailers_on_branch_id"
   add_index "trailers", ["company_id"], name: "index_trailers_on_company_id"
   add_index "trailers", ["dealercompany_id"], name: "index_trailers_on_dealercompany_id"
+
+  create_table "trailertirehistories", force: :cascade do |t|
+    t.integer  "trailer_id"
+    t.integer  "index"
+    t.string   "serialno"
+    t.date     "purchasedate"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "trailertirehistories", ["trailer_id"], name: "index_trailertirehistories_on_trailer_id"
 
   create_table "truckhistories", force: :cascade do |t|
     t.integer  "truck_id"

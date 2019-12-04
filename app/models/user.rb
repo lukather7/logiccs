@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :truckrelationships, foreign_key: :user_id, dependent: :destroy
   has_many :trucks, through: :truckrelationships, dependent: :destroy
 
+  has_many :trailerrelationships, foreign_key: :user_id, dependent: :destroy
+  has_many :trailers, through: :trailerrelationships, dependent: :destroy
+
+
   before_save { self.email = self.email.downcase }
   
   validates :company_id,  presence: true
@@ -21,9 +25,18 @@ class User < ActiveRecord::Base
   end
   
   def truck_include?(truck)
-    trucks.include?(truck)
+    self.trucks.include?(truck)
   end
-  
+
+
+  def trailer_add(trailerid)
+    trailerrelationships.find_or_create_by(trailer_id: trailerid)
+  end
+
+  def trailer_include?(trailer)
+    self.trailers.include?(trailer)
+  end
+    
   
   
 end

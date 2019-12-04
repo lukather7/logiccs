@@ -1,0 +1,35 @@
+<h1>Truck id <%= @truck.id %></h1>
+
+   <table class="table table-striped table-bordered table-hover logitable">
+    <thead>
+      <tr><th>Company Name</th><th>Branch</th><th>Vehicle ID</th><th>Vehicle No.</th><th>Maker</th><th>Wheels</th><th>Engine</th><th>Type</th><th>Model</th>
+      <th>Date of purchace</th><th>Year</th><th>Initial Mileage</th><th>Current Km</th><th>km Next Maintenance</th>
+    </thead>      
+    
+    <tbody>
+        <tr><td><%= @truck.company.name_e %></td><td><%= @truck.branch.name %></td><td><%= @truck.vehicleid %></td>
+        <td><%= @truck.number %></td><td><%= @truck.maker %></td><td><%= @truck.wheels %></td>
+        <td><%= @truck.engine %></td><td><%= @truck.body %></td><td><%= @truck.model %></td>
+        <td><%= @truck.purchase %></td>
+        <td><% dates = distance_of_time_in_words_hash(Time.now, @truck.purchase) %><%= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td><td><%= @truck.initmileage %></td><td><%= @truck.last_mileage %></td><td><%= @truck.next_mileage %></td>
+    </tbody>
+    </table>
+    
+    <% if @maintains.any? %>
+    <table class="table table-striped table-bordered table-hover logitable">
+        <tr>
+           <th>Date</th><th>Mileage</th><th>Next Mileage(Maintainance Timing)</th>
+        </tr>
+        <% @maintains.each do |maintain| %>
+
+           <%= form_for(maintain) do |f| %>
+            <tr>
+                <td><%= maintain.action.strftime("%Y-%m-%d") %></td>
+                <td><%= f.text_field :mileage, class:"form-control" %></td>
+                <td><%= f.text_field :nextmileage, class:"form-control" %></td>
+                <td><%= f.submit "update", class:"btn btn-xs btn-danger" %></td>
+            </tr>
+           <% end %>
+        <% end %>
+    </table>
+    <% end %>

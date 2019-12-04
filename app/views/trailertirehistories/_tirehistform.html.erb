@@ -1,0 +1,18 @@
+<%= form_for(@tirehistory) do |f| %>
+
+<%= f.label :serialno, "シリアルNo", class:"control-label" %>
+
+<%= f.text_field :serialno, class: "form-control col-xs-12" %> 
+
+
+<%= f.label :purchasedate, "購入日付", class:"control-label" %>
+
+<%= f.date_field :purchasedate, class:"form-control" %>
+
+
+<%= f.hidden_field :trailer_id, value: @trailer.id %>
+<%= f.hidden_field :index, value: @index %>
+
+<%= f.submit "登録" , class:"btn btn-primary" %>
+
+<% end %>

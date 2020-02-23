@@ -83,6 +83,9 @@ Rails.application.routes.draw do
 
   resources :tirehistories
   resources :trailertirehistories
+  
+  resources :adhoc_truck_rts
+  resources :adhoc_trailer_rts
 
   resources :partscosts
   resources :laborcosts

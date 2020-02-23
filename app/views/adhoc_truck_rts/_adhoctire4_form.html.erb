@@ -1,0 +1,128 @@
+<!--
+== begin
+
+データベース項目一覧
+
+ t.integer  "truck_id"
+ t.integer  "trailer_id"
+ t.date     "date"
+ t.integer  "mileage"
+
+ t.string   "tire1sn" t.string   "tire2sn" t.string   "tire3sn" t.string   "tire4sn" t.string   "tire5sn"
+ t.string   "tire6sn" t.string   "tire7sn" t.string   "tire8sn" t.string   "tire9sn" t.string   "tire10sn"
+ t.string   "tire11sn" t.string   "tire12sn" t.string   "tire13sn"
+ t.integer  "tire1depth" t.integer  "tire2depth" t.integer  "tire3depth" t.integer  "tire4depth" t.integer  "tire5depth" t.integer  "tire6depth"
+ t.integer  "tire7depth" t.integer  "tire8depth" t.integer  "tire9depth" t.integer  "tire10depth"
+ t.integer  "tire11depth" t.integer  "tire12depth" t.integer  "tire13depth" 
+
+
+4 輪+ 1
+6 輪 + 1
+8 輪 + 1
+10 輪 + 1
+12 輪 + 1
+== end
+-->
+
+
+<%= form_for(@adhoc_tire) do |f| %>
+
+ <%= f.label :mileage %>
+ <%= f.text_field :mileage %>
+
+ <%= f.label :date %>
+ <%= f.date_field :date %>
+
+ <div class="row">
+  <div class="col-xs-1">
+   <div class="col-xs-12">&nbsp;<br></div>
+   <div class="col-xs-12">SN<br><br><br></div>
+   <div class="col-xs-12">depth<br><br><br></div>
+   <div class="col-xs-12">purchase<br><br><br></div>
+   
+   <div class="col-xs-12">&nbsp;</div>
+   <div class="col-xs-12">SN<br><br><br></div>
+   <div class="col-xs-12">depth<br><br><br></div>
+   <div class="col-xs-12">purchase<br><br></div>
+  </div>
+  <div class="col-xs-9">
+    <!--row 1-->
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire A
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire1sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire1depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire1purchase, class:"form-control" %>
+     </div>
+   </div>
+   <div class="col-xs-3">
+      <div class="col-xs-12">
+       Tire B
+      </div>
+      <div class="col-xs-12">
+       <%= f.number_field :tire2sn, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+       <%= f.number_field :tire2depth, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+      <%= f.date_field :tire2purchase, class:"form-control" %>
+      </div>
+    </div>
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire C
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire3sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire3depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire3purchase, class:"form-control" %>
+     </div>
+   </div>
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire D
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire4sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire4depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire4purchase, class:"form-control" %>
+     </div>
+   </div>
+
+     <!--row 2-->
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Spare Tire
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire5sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire5depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire5purchase, class:"form-control" %>
+     </div>
+   </div>
+
+  </div>
+ </div>
+
+
+  <%= f.submit "submit", class:"btn btn-xs btn-success" %>
+<% end %>

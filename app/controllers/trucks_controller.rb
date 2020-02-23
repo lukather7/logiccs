@@ -129,6 +129,12 @@ class TrucksController < ApplicationController
     end
   end
   
+  def adhocrotation
+    @truck = Truck.find(params[:id])
+    @adhocrotations = @truck.adhocrotations
+    
+  end
+  
   def adjustmileage
       @truck = Truck.find(params[:id])
       @maintains = @truck.maintains.order(:id)

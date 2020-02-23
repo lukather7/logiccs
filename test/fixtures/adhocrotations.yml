@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: 
+  date: 2019-12-22
+  mileage: 1
+  tire1sn: MyString
+
+two:
+  truck: 
+  date: 2019-12-22
+  mileage: 1
+  tire1sn: MyString

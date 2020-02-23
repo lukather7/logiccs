@@ -14,7 +14,23 @@
    <%= link_to "Booking Maintenacne", list_path, class:"btn btn-danger" %>
    <%= link_to "Dealer Answer", list_path, class:"btn btn-danger" %>
    <%= link_to "Maintenance Calender", list_path, class:"btn btn-danger" %>
-   <%= link_to 'Tire Rotation', tirerotation_truck_path(@truck), class: "btn btn-success" %>
+   <%#= link_to 'Tire Rotation', tirerotation_truck_path(@truck), class: "btn btn-success" %>
+     <div class="dropdown inline">
+    	<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    		TireRotation
+    		<span class="caret"></span>
+    	</button>
+    	<ul class="dropdown-menu" role="menu">
+    		<li role="presentation">
+                <%= link_to 'Tire Rotation A', tirerotation_truck_path(@truck) %>
+    		</li>
+    		<li role="presentation">
+                <%= link_to 'Tire Rotation B', adhoc_truck_rt_path(@truck) %>
+    		</li>
+    	</ul>
+    </div>  
+   
+   
   <%= link_to "PDF sample", karte_pdf_path(@truck.id), class:"btn btn-info" %>
    <table class="table table-striped table-bordered table-hover">
     <thead>

@@ -1,0 +1,26 @@
+
+.adhocrotations ul {
+    width: 8vw;
+    display: inline-block;
+    padding: 0;
+}
+
+
+.adhocrotations ul.text-center {
+    text-align: center;
+}
+
+.adhocrotations ul li {
+    display: block;
+    border: solid 1px #ccc;
+    min-width: 10%;
+    margin-right: 0;
+}
+
+.adhocrotations ul li.green {
+    background-color: lightgreen;
+}
+
+.adhocrotations_modal {
+    width: 90%!important;
+}

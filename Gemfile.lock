@@ -62,6 +62,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     dotiw (3.1.1)
       actionpack (>= 3)
       i18n
@@ -238,11 +242,11 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.4.0)
     minitest (5.10.1)
     multi_json (1.12.1)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.10.8)
+      mini_portile2 (~> 2.4.0)
     pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -342,6 +346,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   dotiw
   execjs
   fog

@@ -27,6 +27,9 @@
 
 <%= form_for(@adhoc_tire) do |f| %>
 
+
+ <%= hidden_field_tag :truck_id, @truck.id %>
+
  <%= f.label :mileage %>
  <%= f.text_field :mileage %>
 
@@ -44,6 +47,11 @@
    <div class="col-xs-12">SN<br><br><br></div>
    <div class="col-xs-12">depth<br><br><br></div>
    <div class="col-xs-12">purchase<br><br></div>
+   
+   <div class="col-xs-12">&nbsp;</div>
+   <div class="col-xs-12">SN<br><br><br></div>
+   <div class="col-xs-12">depth<br><br><br></div>
+   <div class="col-xs-12">purchase<br><br></div>
   </div>
   <div class="col-xs-9">
     <!--row 1-->
@@ -52,7 +60,7 @@
       Tire A
      </div>
      <div class="col-xs-12">
-      <%= f.number_field :tire1sn, class:"form-control" %>
+      <%= f.text_field :tire1sn, class:"form-control" %>
      </div>
      <div class="col-xs-12">
       <%= f.number_field :tire1depth, class:"form-control" %>
@@ -66,7 +74,7 @@
        Tire B
       </div>
       <div class="col-xs-12">
-       <%= f.number_field :tire2sn, class:"form-control" %>
+       <%= f.text_field :tire2sn, class:"form-control" %>
       </div>
       <div class="col-xs-12">
        <%= f.number_field :tire2depth, class:"form-control" %>
@@ -80,7 +88,7 @@
       Tire C
      </div>
      <div class="col-xs-12">
-      <%= f.number_field :tire3sn, class:"form-control" %>
+      <%= f.text_field :tire3sn, class:"form-control" %>
      </div>
      <div class="col-xs-12">
       <%= f.number_field :tire3depth, class:"form-control" %>
@@ -94,7 +102,7 @@
       Tire D
      </div>
      <div class="col-xs-12">
-      <%= f.number_field :tire4sn, class:"form-control" %>
+      <%= f.text_field :tire4sn, class:"form-control" %>
      </div>
      <div class="col-xs-12">
       <%= f.number_field :tire4depth, class:"form-control" %>
@@ -103,14 +111,13 @@
      <%= f.date_field :tire4purchase, class:"form-control" %>
      </div>
    </div>
-
-     <!--row 2-->
+    <!--row 2-->
    <div class="col-xs-3">
      <div class="col-xs-12">
-      Spare Tire
+      Tire E
      </div>
      <div class="col-xs-12">
-      <%= f.number_field :tire5sn, class:"form-control" %>
+      <%= f.text_field :tire5sn, class:"form-control" %>
      </div>
      <div class="col-xs-12">
       <%= f.number_field :tire5depth, class:"form-control" %>
@@ -119,6 +126,93 @@
      <%= f.date_field :tire5purchase, class:"form-control" %>
      </div>
    </div>
+   <div class="col-xs-3">
+      <div class="col-xs-12">
+       Tire F
+      </div>
+      <div class="col-xs-12">
+       <%= f.text_field :tire6sn, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+       <%= f.number_field :tire6depth, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+      <%= f.date_field :tire6purchase, class:"form-control" %>
+      </div>
+    </div>
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire G
+     </div>
+     <div class="col-xs-12">
+      <%= f.text_field :tire7sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire7depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire7purchase, class:"form-control" %>
+     </div>
+   </div>
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire H
+     </div>
+     <div class="col-xs-12">
+      <%= f.text_field :tire8sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire8depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire8purchase, class:"form-control" %>
+     </div>
+   </div>    
+      <!--row 3 -->
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Tire I
+     </div>
+     <div class="col-xs-12">
+      <%= f.text_field :tire9sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire9depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire9purchase, class:"form-control" %>
+     </div>
+   </div>
+   <div class="col-xs-3">
+      <div class="col-xs-12">
+       Tire J
+      </div>
+      <div class="col-xs-12">
+       <%= f.text_field :tire10sn, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+       <%= f.number_field :tire10depth, class:"form-control" %>
+      </div>
+      <div class="col-xs-12">
+      <%= f.date_field :tire10purchase, class:"form-control" %>
+      </div>
+    </div>
+    
+   <div class="col-xs-3">
+     <div class="col-xs-12">
+      Spare
+     </div>
+     <div class="col-xs-12">
+      <%= f.text_field :tire11sn, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.number_field :tire11depth, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+     <%= f.date_field :tire11purchase, class:"form-control" %>
+     </div>
+   </div>
+    
 
   </div>
  </div>

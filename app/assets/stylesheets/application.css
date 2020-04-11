@@ -40,3 +40,11 @@ div.alert {
 div.inline {
     display:inline;
 }
+
+.bgwhite {
+    background-color: white;
+}
+
+.bgpink {
+    background-color: pink;
+}

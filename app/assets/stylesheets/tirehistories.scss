@@ -20,9 +20,14 @@ table#truck_fig {
 
 
 table#truck_fig td {
-    text-align: center;
+    text-align: left;
     width: 16.6%;
     border-top: none;
+    overflow-wrap: anywhere;
+}
+
+table#truck_fig td.center {
+    text-align: center;
 }
 
 table#truck_fig td.tb-top {

@@ -1,0 +1,76 @@
+<table class="table" id="truck_fig">
+     <% rotation_count = @truck.adhocTruckRts.count %>
+    <% @tirelist =  get_adhoctire_data(@truck, rotation_count) %>
+    <tbody>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="4" class="tb-top tb-left tb-right">&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="4" class="tb-left tb-right">&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-top tb-left tb-right center">A</td>
+        <td colspan="2">&nbsp;</td>
+        <td class="tb-top tb-left tb-right center">B</td>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-left tb-right"><%= not_nill(@tirelist,"tire1sn") %></td>
+        <td colspan="2">&nbsp;</td>
+        <td class="tb-left tb-right"><%= not_nill(@tirelist,"tire2sn") %></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-left tb-right"></td>
+        <td colspan="2">&nbsp;</td>
+        <td class="tb-left tb-right"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-top">&nbsp;</td>
+        <td colspan="2" class="tb-left tb-right">&nbsp;</td>
+        <td class="tb-top">&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-bottom">&nbsp;</td>
+        <td colspan="2" class="tb-left tb-right tb-bottom">&nbsp;</td>
+        <td class="tb-bottom">&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td></td>
+        <td class="tb-left tb-right center">C</td>
+        <td colspan="2" class="center">Spare</td>
+        <td class="tb-left tb-right center">D</td>
+        <td>&nbsp;</td></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-left tb-right"><%= not_nill(@tirelist,"tire3sn") %></td>
+        <td colspan="2"><%= not_nill(@tirelist,"tire5sn") %></td>
+        <td class="tb-left tb-right"><%= not_nill(@tirelist,"tire4sn") %></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+        <td colspan="2" class="tb-bottom">&nbsp;</td>
+        <td class="tb-bottom tb-left tb-right">&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+ 
+
+    </tbody>
+</table>
+ 

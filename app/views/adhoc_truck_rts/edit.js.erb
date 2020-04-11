@@ -1,0 +1,12 @@
+$("#modal-example").modal();
+
+var wheels = <%= @truck.wheels %>;
+if (wheels == "4") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctire4_form')) %>"); 
+}
+else if (wheels == "6") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctire6_form')) %>"); 
+}
+else if (wheels == "10") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctire10_form')) %>"); 
+}

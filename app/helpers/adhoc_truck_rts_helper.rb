@@ -8,7 +8,11 @@ module AdhocTruckRtsHelper
           data:{toggle:"modal", target:"#modal-example"}, remote:true)
     else
         date = @adhoc_tirelist[index - 1].date
-        return link_to(date.strftime("%Y/%m/%d"), edit_adhoc_truck_rt_path(@adhoc_tirelist[index - 1]), remote: true)
+        if (date != nil)
+          return link_to(date.strftime("%Y/%m/%d"), edit_adhoc_truck_rt_path(@adhoc_tirelist[index - 1]), remote: true)
+        else
+          return link_to("---", edit_adhoc_truck_rt_path(@adhoc_tirelist[index - 1]), remote: true)
+        end
     end
   end
   

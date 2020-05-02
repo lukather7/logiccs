@@ -23,7 +23,7 @@ class AdhocTruckRtsController < ApplicationController
             redirect_to adhoc_truck_rt_url(@truck)
         else
             flash[:error] = "Tire Rotation Rejected"
-            render :new
+            render :edit
         end
     end
     

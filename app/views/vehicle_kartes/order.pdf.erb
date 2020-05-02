@@ -15,8 +15,8 @@
      <% @nextcosts = Partscost.where(company_id: @truck.company_id, model: @truck.model).last %>
      <% temp_mileage = @truck.last_mileage - @truck.initmileage %>
      <% count_cycle = (temp_mileage / 40000.0).round %>
-     <% intermediate_mileage = (40000 * count_cycle) - 1 %>
-     <% pcost = @nextcosts.pickupcost(intermediate_mileage) %>
+     <% temp2_mileage = (40000 * count_cycle) - 1 %>
+     <% pcost = @nextcosts.pickupcost(temp2_mileage) %>
      <%# pcost = @nextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
      <% total = 0 %>
      <%# oil_price = @truck.e_oil * Oilprice.first.price %>
@@ -29,7 +29,7 @@
      <% partstotal = total %>
 
      <% @lnextcosts = Laborcost.where(company_id: @truck.company_id, model: @truck.model).first %>
-     <% lcost = @lnextcosts.pickupcost(initermediate_mileage) %>
+     <% lcost = @lnextcosts.pickupcost(temp2_mileage) %>
      <%# lcost = @lnextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
      <% ltotal = 0 %>
      <% temp = 0 %>

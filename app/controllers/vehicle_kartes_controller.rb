@@ -85,8 +85,8 @@ class VehicleKartesController < ApplicationController
   def order
     @truck = Truck.find(params[:id])
    respond_to do |format|
-#      format.html { redirect_to karte_pdf_path(id: params[:id], format: :pdf, debug: 1)}
-      format.html { redirect_to karte_pdf_path(id: params[:id], format: :pdf)}
+      format.html { redirect_to karte_pdf_path(id: params[:id], format: :pdf, debug: 1)}
+#      format.html { redirect_to karte_pdf_path(id: params[:id], format: :pdf)}
 
       format.pdf do
         render pdf: 'order',

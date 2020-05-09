@@ -11,9 +11,14 @@ class SendbookingsController < ApplicationController
 
        @partscost = Partscost.where(model: model, company_id: company.id).first
        @laborcost = Laborcost.where(model: model, company_id: company.id).first
+       
+       
+       temp_mileage = @truck.last_mileage - @truck.initmileage
+       count_cycle = (temp_mileage / 40000.0).round 
+       temp2_mileage = (40000 * count_cycle) - 1
 
-       pcost = @partscost.pickupcost(@truck.last_mileage - @truck.initmileage)
-       lcost = @laborcost.pickupcost(@truck.last_mileage - @truck.initmileage)
+       pcost = @partscost.pickupcost(temp2_mileage)
+       lcost = @laborcost.pickupcost(temp2_mileage)
 
  #      @partscostarray = []
  #     milesagestep = [40000, 80000, 120000, 160000, 200000, 240000]        

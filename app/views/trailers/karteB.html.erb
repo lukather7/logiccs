@@ -1,0 +1,68 @@
+<%= link_to "Back to Karte", karte_path(@trailer), class:"btn btn-danger" %>
+
+<%= render "adhoc_trailer_rts/modal", truck: @trailer %>
+<div class="row" id="rotation">
+　　    　　<h2>Tire Rotation B</h2>
+
+  <div class="logiccs_table">
+   <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr><th>Company Name</th><th>Branch</th><th>Vehicle ID</th><th>Vehicle No.</th><th>Maker</th><th>Wheels</th><th>Engine</th><th>Type</th><th>Model</th>
+      <th>Date of purchace</th><th>Year</th><th>Current Km</th><th>km Next Maintenance</th>
+    </thead>      
+    
+    <tbody>
+        <tr><td><%= @trailer.company.name_e %></td><td><%= @trailer.branch.name %></td><td><%= @trailer.vehicleid %></td>
+        <td><%= @trailer.number %></td><td><%= @trailer.wheels %></td>
+        <td><%= @trailer.purchase %></td>
+        <td><% dates = distance_of_time_in_words_hash(Time.now, @trailer.purchase) %><%= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td>
+    </tbody>
+    </table>　　    　　
+　　</div>    　　
+  <div class="adhocrotations col-xs-8">
+    <ul class="text-center">
+      <li>Operation</li>
+      <li>A<br>depth<br>purchase</li>
+      <li>B<br>depth<br>purchase</li>
+      <li>C<br>depth<br>purchase</li>
+      <li>D<br>depth<br>purchase</li>
+      <li>E<br>depth<br>purchase</li>
+      <li>F<br>depth<br>purchase</li>
+      <li>G<br>depth<br>purchase</li>
+      <li>H<br>depth<br>purchase</li>
+      <li>I<br>depth<br>purchase</li>
+      <% if @trailer.wheels != "6" %>
+          <li>J<br>depth<br>purchase</li>
+          <li>K<br>depth<br>purchase</li>
+          <li>L<br>depth<br>purchase</li>
+          <li>M<br>depth<br>purchase</li>
+      <% end %>
+    </ul>
+    
+    <%= render 'karteB_sub', {trailer: @trailer, number: 1} %>
+    <%= render 'karteB_sub', {trailer: @trailer, number: 2} %>
+    <%= render 'karteB_sub', {trailer: @trailer, number: 3} %>
+    <%= render 'karteB_sub', {trailer: @trailer, number: 4} %>
+    <%= render 'karteB_sub', {trailer: @trailer, number: 5} %>
+    
+    
+  
+    
+  </div>
+  
+  <div class="col-xs-4">
+    
+    <%# if @trailer.wheels == 10 %>
+       <%#= render 'truckfig10' %>
+    <%# elsif @trailer.wheels == 6 %>
+       <%#= render 'truckfig6' %>
+    <%# elsif @trailer.wheels == 4 %>
+       <%#= render 'truckfig4' %>
+    <%# end %>
+    
+    
+    
+  </div>
+
+
+</div>

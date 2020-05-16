@@ -3,9 +3,16 @@
 
         <% rot_ar = makearray_trailertire(@trailer, @hist_ar)%>
         <%= render 'trailertable', trailer: @trailer %>
-
+        
+       <div class="row bgwhite"> 
+           <ul class="nav nav-tabs nav-justified mb-3">
+              <li class="nav-item"><a href="#" class="nav-link active bgpink">Rotation A</a></li>
+              <li class="nav-item"><%= link_to "Rotation B",  karteB_trailer_path(@trailer), class:"nav-link" %></li>
+            </ul>
+        </div>
+        
         <div class="row">
-        　　<h2>タイヤローテーション表</h2>
+            <h2>Tire Rotation A</h2>
 
             <div class="col-lg-4">
                 <table class="table table-responsive" id="truck_fig">

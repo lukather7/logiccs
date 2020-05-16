@@ -115,7 +115,11 @@ class TrailersController < ApplicationController
       render 'rotation_full'
     end
   end
-
+  
+  def karteB
+    @trailer = Trailer.find(params[:id])
+    wheels = @trailer.wheels
+  end
 
     
 private

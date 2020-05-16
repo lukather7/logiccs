@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   resources :trailers do
     member do
       get  'karte'
+      get  'karteB'
     end
   end
   resources :trailerrelationships,  only: [:create, :destroy]

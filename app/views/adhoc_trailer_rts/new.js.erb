@@ -1,0 +1,10 @@
+var wheels = <%= @trailer.wheels %>;
+if (wheels == "8") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctire8_form')) %>"); 
+}
+else if (wheels == "12") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctire12_form')) %>"); 
+}
+else if (wheels == "FULL") {
+    $("#modal-body").html("<%= escape_javascript(render('adhoctireFULL_form')) %>"); 
+}

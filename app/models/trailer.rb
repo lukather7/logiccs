@@ -7,4 +7,6 @@ class Trailer < ActiveRecord::Base
   
   
   has_many :tirehistories, class_name: "Trailertirehistory"
+  has_many :adhocTrailerRts, class_name: "AdhocTrailerRt", dependent: :destroy
+
 end

@@ -14,7 +14,7 @@ class Truck < ActiveRecord::Base
   has_many :tirehistories, dependent: :destroy
   
   has_many :adhocTruckRts, class_name: "AdhocTruckRt", dependent: :destroy
-  has_many :adhocTrailerRts, class_name: "AdhocTrailerRt", dependent: :destroy
+#  has_many :adhocTrailerRts, class_name: "AdhocTrailerRt", dependent: :destroy
   
 
   validates :company_id, presence: true

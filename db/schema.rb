@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191222125419) do
+ActiveRecord::Schema.define(version: 20200620131326) do
 
   create_table "adhocrotations", force: :cascade do |t|
     t.integer  "truck_id"
@@ -31,19 +31,6 @@ ActiveRecord::Schema.define(version: 20191222125419) do
     t.string   "tire11sn"
     t.string   "tire12sn"
     t.string   "tire13sn"
-    t.integer  "tire1depth"
-    t.integer  "tire2depth"
-    t.integer  "tire3depth"
-    t.integer  "tire4depth"
-    t.integer  "tire5depth"
-    t.integer  "tire6depth"
-    t.integer  "tire7depth"
-    t.integer  "tire8depth"
-    t.integer  "tire9depth"
-    t.integer  "tire10depth"
-    t.integer  "tire11depth"
-    t.integer  "tire12depth"
-    t.integer  "tire13depth"
     t.date     "tire1purchase"
     t.date     "tire2purchase"
     t.date     "tire3purchase"
@@ -57,8 +44,34 @@ ActiveRecord::Schema.define(version: 20191222125419) do
     t.date     "tire11purchase"
     t.date     "tire12purchase"
     t.date     "tire13purchase"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "tire1depthmiddle"
+    t.integer  "tire2depthmiddle"
+    t.integer  "tire3depthmiddle"
+    t.integer  "tire4depthmiddle"
+    t.integer  "tire5depthmiddle"
+    t.integer  "tire6depthmiddle"
+    t.integer  "tire7depthmiddle"
+    t.integer  "tire8depthmiddle"
+    t.integer  "tire9depthmiddle"
+    t.integer  "tire10depthmiddle"
+    t.integer  "tire11depthmiddle"
+    t.integer  "tire12depthmiddle"
+    t.integer  "tire13depthmiddle"
+    t.integer  "tire1depthside"
+    t.integer  "tire2depthside"
+    t.integer  "tire3depthside"
+    t.integer  "tire4depthside"
+    t.integer  "tire5depthside"
+    t.integer  "tire6depthside"
+    t.integer  "tire7depthside"
+    t.integer  "tire8depthside"
+    t.integer  "tire9depthside"
+    t.integer  "tire10depthside"
+    t.integer  "tire11depthside"
+    t.integer  "tire12depthside"
+    t.integer  "tire13depthside"
   end
 
   create_table "admins", force: :cascade do |t|

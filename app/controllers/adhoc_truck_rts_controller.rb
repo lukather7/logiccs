@@ -56,19 +56,20 @@ class AdhocTruckRtsController < ApplicationController
      def tire_params
         params.require(:adhoc_truck_rt).permit(
             :mileage, :date,
-            :tire1sn, :tire1depth, :tire1purchase,
-            :tire2sn, :tire2depth, :tire2purchase,
-            :tire3sn, :tire3depth, :tire3purchase,
-            :tire4sn, :tire4depth, :tire4purchase,
-            :tire5sn, :tire5depth, :tire5purchase,
-            :tire6sn, :tire6depth, :tire6purchase,
-            :tire7sn, :tire7depth, :tire7purchase,
-            :tire8sn, :tire8depth, :tire8purchase,
-            :tire9sn, :tire9depth, :tire9purchase,
-            :tire10sn, :tire10depth, :tire10purchase,
-            :tire11sn, :tire11depth, :tire11purchase,
-            :tire12sn, :tire12depth, :tire12purchase,
-            :tire13sn, :tire13depth, :tire13purchase,
+            
+            :tire1sn, :tire1depthmiddle, :tire1depthside, :tire1purchase,
+            :tire2sn, :tire2depthmiddle, :tire2depthside, :tire2purchase,
+            :tire3sn, :tire3depthmiddle, :tire3depthside, :tire3purchase,
+            :tire4sn, :tire4depthmiddle, :tire4depthside, :tire4purchase,
+            :tire5sn, :tire5depthmiddle, :tire5depthside, :tire5purchase,
+            :tire6sn, :tire6depthmiddle, :tire6depthside, :tire6purchase,
+            :tire7sn, :tire7depthmiddle, :tire7depthside, :tire7purchase,
+            :tire8sn, :tire8depthmiddle, :tire8depthside, :tire8purchase,
+            :tire9sn, :tire9depthmiddle, :tire9depthside, :tire9purchase,
+            :tire10sn, :tire10depthmiddle, :tire10depthside, :tire10purchase,
+            :tire11sn, :tire11depthmiddle, :tire11depthside, :tire11purchase,
+            :tire12sn, :tire12depthmiddle, :tire12depthside, :tire12purchase,
+            :tire13sn, :tire13depthmiddle, :tire13depthside, :tire13purchase,
         )
      end
     

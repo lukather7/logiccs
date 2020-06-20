@@ -37,7 +37,7 @@
           <%= not_nill(tirelist,"tire9depth") %>mm<br>
           <%= not_nill(tirelist,"tire9purchase") %>
       </li>
-      <% if @trailer.wheels == "12" || @trailer.wheels = "FULL" %>
+      <% if @trailer.wheels != "8" && @trailer.wheels != "FULL" %>
       <li><%= not_nill(tirelist,"tire10sn") %><br>
           <%= not_nill(tirelist,"tire10depth") %>mm<br>
           <%= not_nill(tirelist,"tire10purchase") %>

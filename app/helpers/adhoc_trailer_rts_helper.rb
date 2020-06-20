@@ -25,4 +25,22 @@ module AdhocTrailerRtsHelper
     
   end
   
+  def makearray_Brotation(trailer)
+     r = trailer.adhocTrailerRts.select("tire1sn", "tire2sn", "tire3sn",
+       "tire4sn", "tire5sn", "tire6sn", "tire7sn", "tire8sn", "tire9sn",
+       "tire10sn", "tire11sn", "tire12sn", "tire13sn").last 
+       
+      a = [ r.tire1sn, r.tire2sn, r.tire3sn, r.tire4sn, r.tire5sn,
+         r.tire6sn, r.tire7sn, r.tire8sn, r.tire9sn, r.tire10sn,
+         r.tire11sn, r.tire12sn, r.tire13sn ]
+         
+         a.each_index do |index| 
+           if (a[index] == nil)
+             a[index] = ""
+           end
+         end
+         
+      return a
+  end
+  
 end

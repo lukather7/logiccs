@@ -1,0 +1,13 @@
+current directory: /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.6.0/bundler/gems/json-7f4cfd853f2c/ext/json
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0 -r ./siteconf20190727-7485-1xoleab.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.6.0/bundler/gems/json-7f4cfd853f2c/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.6.0/bundler/gems/json-7f4cfd853f2c/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /home/ec2-user/environment/Logiccs/vendor/bundle/ruby/2.6.0/bundler/gems/json-7f4cfd853f2c/ext/json
+make "DESTDIR=" install

@@ -63,10 +63,13 @@
       <%= f.text_field :tire1sn, class:"form-control" %>
      </div>
      <div class="col-xs-12">
-      <%= f.number_field :tire1depth, class:"form-control" %>
+      <%= f.number_field :tire1depthmiddle, class:"form-control" %>
      </div>
      <div class="col-xs-12">
-     <%= f.date_field :tire1purchase, class:"form-control" %>
+      <%= f.date_field :tire1depthside, class:"form-control" %>
+     </div>
+     <div class="col-xs-12">
+      <%= f.date_field :tire1purchase, class:"form-control" %>
      </div>
    </div>
    <div class="col-xs-3">
@@ -77,9 +80,12 @@
        <%= f.text_field :tire2sn, class:"form-control" %>
       </div>
       <div class="col-xs-12">
-       <%= f.number_field :tire2depth, class:"form-control" %>
+       <%= f.number_field :tire2depthmiddle, class:"form-control" %>
       </div>
       <div class="col-xs-12">
+       <%= f.date_field :tire2depthside, class:"form-control" %>
+      </div>
+       <div class="col-xs-12">
       <%= f.date_field :tire2purchase, class:"form-control" %>
       </div>
     </div>

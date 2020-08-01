@@ -10,7 +10,7 @@ gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', group: :development
 
-gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3', '~> 1.3.6', group: :development
 
 # 本番ではpostgressを使用する
 gem 'pg', group: :production

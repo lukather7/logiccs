@@ -21,8 +21,8 @@
      <% total = 0 %>
      <%# oil_price = @truck.e_oil * Oilprice.first.price %>
      <%# total += oil_price %>
-     <% temp = 0 %>
      <% array.each do |e| %>
+        <% temp = 0 %>
         <% eval("temp = pcost.#{e} if pcost.#{e} != '' && pcost.#{e} != nil") ; total += temp %>
         <% eval("pcost.#{e} = ' ' if temp == 0") %>
      <% end %>     
@@ -32,10 +32,10 @@
      <% lcost = @lnextcosts.pickupcost(temp2_mileage) %>
      <%# lcost = @lnextcosts.pickupcost(@truck.last_mileage - @truck.initmileage) %>
      <% ltotal = 0 %>
-     <% temp = 0 %>
      <%# l_oil_price = 380 %>
      <%# ltotal += l_oil_price %>
      <% array.each do |e| %>
+        <% temp = 0 %>
         <% eval("temp = lcost.#{e} if lcost.#{e} != '' && lcost.#{e} != nil") ; ltotal += temp %>
         <% eval("lcost.#{e} = ' ' if temp == 0") %>
      <% end %> 

@@ -2,56 +2,69 @@
       <li><%= adhoc_trailer_lasttire(@trailer, number) %></li>
       <% tirelist =  get_trailer_adhoctire_data(@trailer, number) %>
      <li><%= not_nill(tirelist,"tire1sn") %><br>
-          <%= not_nill(tirelist,"tire1depth") %>mm<br>
+          <%= not_nill(tirelist,"tire1depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire1depthside") %>mm<br>
           <%= not_nill(tirelist,"tire1purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire2sn") %><br>
-          <%= not_nill(tirelist,"tire2depth") %>mm<br>
+          <%= not_nill(tirelist,"tire2depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire2depthside") %>mm<br>
           <%= not_nill(tirelist,"tire2purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire3sn") %><br>
-          <%= not_nill(tirelist,"tire3depth") %>mm<br>
+          <%= not_nill(tirelist,"tire3depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire3depthside") %>mm<br>
           <%= not_nill(tirelist,"tire3purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire4sn") %><br>
-          <%= not_nill(tirelist,"tire4depth") %>mm<br>
+          <%= not_nill(tirelist,"tire4depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire4depthside") %>mm<br>
           <%= not_nill(tirelist,"tire4purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire5sn") %><br>
-          <%= not_nill(tirelist,"tire5depth") %>mm<br>
+          <%= not_nill(tirelist,"tire5depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire5depthside") %>mm<br>
           <%= not_nill(tirelist,"tire5purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire6sn") %><br>
-          <%= not_nill(tirelist,"tire6depth") %>mm<br>
+          <%= not_nill(tirelist,"tire6depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire6depthside") %>mm<br>
           <%= not_nill(tirelist,"tire6purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire7sn") %><br>
-          <%= not_nill(tirelist,"tire7depth") %>mm<br>
+          <%= not_nill(tirelist,"tire7depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire7depthside") %>mm<br>
           <%= not_nill(tirelist,"tire7purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire8sn") %><br>
-          <%= not_nill(tirelist,"tire8depth") %>mm<br>
+          <%= not_nill(tirelist,"tire8depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire8depthside") %>mm<br>
           <%= not_nill(tirelist,"tire8purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire9sn") %><br>
-          <%= not_nill(tirelist,"tire9depth") %>mm<br>
+          <%= not_nill(tirelist,"tire9depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire9depthside") %>mm<br>
           <%= not_nill(tirelist,"tire9purchase") %>
       </li>
       <% if @trailer.wheels != "8" && @trailer.wheels != "FULL" %>
       <li><%= not_nill(tirelist,"tire10sn") %><br>
-          <%= not_nill(tirelist,"tire10depth") %>mm<br>
+          <%= not_nill(tirelist,"tire10depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire10depthside") %>mm<br>
           <%= not_nill(tirelist,"tire10purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire11sn") %><br>
-          <%= not_nill(tirelist,"tire11depth") %>mm<br>
+          <%= not_nill(tirelist,"tire11depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire11depthside") %>mm<br>
           <%= not_nill(tirelist,"tire11purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire12sn") %><br>
-          <%= not_nill(tirelist,"tire12depth") %>mm<br>
+          <%= not_nill(tirelist,"tire12depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire12depthside") %>mm<br>
           <%= not_nill(tirelist,"tire12purchase") %>
       </li>
       <li><%= not_nill(tirelist,"tire13sn") %><br>
-          <%= not_nill(tirelist,"tire13depth") %>mm<br>
+          <%= not_nill(tirelist,"tire13depthmiddle") %>mm<br>
+          <%= not_nill(tirelist,"tire13depthside") %>mm<br>
           <%= not_nill(tirelist,"tire13purchase") %>
       </li>
       <% end %>

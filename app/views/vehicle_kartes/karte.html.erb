@@ -43,7 +43,7 @@
         <td><%= @truck.number %></td><td><%= @truck.maker %></td><td><%= @truck.wheels %></td>
         <td><%= @truck.engine %></td><td><%= @truck.body %></td><td><%= @truck.model %></td>
         <td><%= @truck.purchase %></td>
-        <td><% dates = distance_of_time_in_words_hash(Time.now, @truck.purchase) %><%= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td><td><%= @truck.last_mileage %></td><td><%= @truck.next_mileage %></td>
+        <td><%# dates = time_ago_in_words(@truck.purchase) %><%#= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td><td><%= @truck.last_mileage %></td><td><%= @truck.next_mileage %></td>
     </tbody>
     </table>
     
@@ -91,8 +91,8 @@
          <% total = 0 %>
          <% oil_price = @truck.e_oil * Oilprice.first.price %>
          <% total += oil_price %>
-         <% temp = 0 %>
          <% array.each do |e| %>
+            <% temp = 0 %>
             <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
          <% end %>     
          <% partstotal = total %>         
@@ -135,10 +135,10 @@
          <% @nextcosts = Laborcost.where(company_id: @truck.company_id, model: @truck.model).first %>
          <% cost = @nextcosts.pickupcost(mileage - 1) %>
          <% total = 0 %>
-         <% temp = 0 %>
          <% oil_price = 380 %>
          <% total += oil_price %>
          <% array.each do |e| %>
+            <% temp = 0 %>
             <% eval("temp = cost.#{e} if cost.#{e} != '' && cost.#{e} != nil") ; total += temp %>
          <% end %> 
          <td>Labor Costs</td>

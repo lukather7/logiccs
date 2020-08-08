@@ -13,7 +13,11 @@ gem 'rails', '4.2.8'
 gem 'sqlite3', '~> 1.3.6', group: :development
 
 # 本番ではpostgressを使用する
-gem 'pg', group: :production
+#gem 'pg', group: :production
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

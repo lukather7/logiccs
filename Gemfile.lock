@@ -409,7 +409,7 @@ DEPENDENCIES
   json!
   kaminari
   momentjs-rails (>= 2.9.0)
-  pg
+  pg (>= 0.18, < 2.0)
   pry-byebug
   rails (= 4.2.8)
   rails_12factor
@@ -423,6 +423,9 @@ DEPENDENCIES
   web-console (~> 2.0)
   wicked_pdf
   wkhtmltopdf-binary
+
+RUBY VERSION
+   ruby 2.5.3p105
 
 BUNDLED WITH
    1.17.3

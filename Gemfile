@@ -17,6 +17,7 @@ gem 'sqlite3', '~> 1.3.6', group: :development
 
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
+  
 end
 
 # Use SCSS for stylesheets

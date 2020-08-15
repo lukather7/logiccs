@@ -1,0 +1,16 @@
+=== logiccs Releases - Current: v56
+v56  Rollback to v54  fumioh@cscoms.com  2020/08/01 13:38:31 +0000
+v55  Deploy 56399c34  fumioh@cscoms.com  2020/08/01 13:26:59 +0000
+v54  Deploy 7068a406  fumioh@cscoms.com  2020/06/20 12:35:18 +0000
+v53  Deploy 610b3396  fumioh@cscoms.com  2020/05/09 12:52:47 +0000
+v52  Deploy 14d0b6b5  fumioh@cscoms.com  2020/05/09 12:45:56 +0000
+v51  Deploy 0101454e  fumioh@cscoms.com  2020/05/02 13:34:31 +0000
+v50  Deploy 9ddbf3c0  fumioh@cscoms.com  2020/05/02 13:08:07 +0000
+v49  Deploy 02a0fe9e  fumioh@cscoms.com  2020/05/02 13:02:37 +0000
+v48  Deploy 00198d00  fumioh@cscoms.com  2020/04/11 13:24:35 +0000
+v47  Deploy 6eb45f60  fumioh@cscoms.com  2020/02/23 13:13:04 +0000
+v46  Deploy 7494b330  fumioh@cscoms.com  2019/12/22 12:49:06 +0000
+v45  Deploy 58e45fcd  fumioh@cscoms.com  2019/12/04 14:58:02 +0000
+v44  Deploy 5945aca5  fumioh@cscoms.com  2019/09/14 12:34:14 +0000
+v43  Deploy 9e7db260  fumioh@cscoms.com  2019/09/07 12:56:59 +0000
+v42  Deploy 9e7db260  fumioh@cscoms.com  2019/09/07 12:55:37 +0000

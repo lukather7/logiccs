@@ -281,7 +281,7 @@
     <ul>
       <li><%= adhoc_lasttire(@truck, 4) %></li>
       <% @tirelist =  get_adhoctire_data(@truck, 4) %>
-      <% prevtirelist = get_adhoctire_data(@truck, 2) %>
+      <% prevtirelist = get_adhoctire_data(@truck, 3) %>
       <% displayclass = check_replaced(prevtirelist, @tirelist, "tire1sn") ? "bgwhite": "bgpink" %>
       <li class="<%= displayclass %>">
           <%= not_nill(@tirelist,"tire1sn") %><br>
@@ -368,8 +368,8 @@
     
     <ul>
       <li><%= adhoc_lasttire(@truck, 5) %></li>
-      <% prevtirelist = get_adhoctire_data(@truck, 1) %>
       <% @tirelist =  get_adhoctire_data(@truck, 5) %>
+      <% prevtirelist = get_adhoctire_data(@truck, 4) %>
       <% displayclass = check_replaced(prevtirelist, @tirelist, "tire1sn") ? "bgwhite": "bgpink" %>
       <li class="<%= displayclass %>">
           <%= not_nill(@tirelist,"tire1sn") %><br>

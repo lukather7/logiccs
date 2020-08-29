@@ -43,7 +43,7 @@
         <td><%= @truck.number %></td><td><%= @truck.maker %></td><td><%= @truck.wheels %></td>
         <td><%= @truck.engine %></td><td><%= @truck.body %></td><td><%= @truck.model %></td>
         <td><%= @truck.purchase %></td>
-        <td><%# dates = time_ago_in_words(@truck.purchase) %><%#= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td><td><%= @truck.last_mileage %></td><td><%= @truck.next_mileage %></td>
+        <td><% dates = time_ago_in_words_hash(@truck.purchase) %><%= dates[:years].to_s+"Years "+dates[:months].to_s+"Month" %></td><td><%= @truck.last_mileage %></td><td><%= @truck.next_mileage %></td>
     </tbody>
     </table>
     

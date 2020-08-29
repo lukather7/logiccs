@@ -73,7 +73,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'dotiw'
+gem 'dotiw', '3.1.1'
 
 gem 'wkhtmltopdf-binary', group: :production
 gem 'wicked_pdf'

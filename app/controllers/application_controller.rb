@@ -1,3 +1,5 @@
+require 'action_view'
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -5,6 +7,7 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   include DealersessionsHelper
+  include ActionView::Helpers::DateHelper
 
   private
   def logged_in_user

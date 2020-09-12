@@ -11,17 +11,17 @@ class VehicleKartesController < ApplicationController
         model = @truck.model
         
  
-#        im = (@truck.initmileage != nil) ? @truck.initmileage : 0
- #       nextmileage = @truck.nextmileage
+        im = (@truck.initmileage != nil) ? @truck.initmileage : 0
+        #nextmileage = @truck.nextmileage
         
-#        realnextmileage =  nextmileage - im;
+        #realnextmileage =  nextmileage - im;
         
         @partscost = Partscost.where(model: model, company_id: company.id)
         @laborcost = Laborcost.where(model: model, company_id: company.id)
 
        @partscostarray = []
        milesagestep = [40000, 80000, 120000, 160000, 200000, 240000]
-#       @partscost
+       @partscost
 
     end
     

@@ -1,4 +1,5 @@
 var wheels = <%= @truck.wheels %>;
+
 if (wheels == "4") {
     $("#modal-body").html("<%= escape_javascript(render('adhoctire4_form')) %>"); 
 }
